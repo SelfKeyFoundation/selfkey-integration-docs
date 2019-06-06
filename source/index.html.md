@@ -19,13 +19,33 @@ search: true
 
 # Introduction
 
-<b>Welcome to the SelfKey API.</b>
+**Welcome to the SelfKey API**
 
-You can use our API to access endpoints in the SelfKey Identity Wallet desktop application and the SelfKey Extension browser plugin. You can also view code examples in the dark area to the right, switching languages between the tabs.
+The SelfKey ecosystem is broken down into three main parts. First is the SelfKey Identity Wallet, a desktop Ethereum wallet on Mac OS, Windows, and Linux. Second is the SelfKey Extension, a Chrome browser plugin that allows a user to authenticate with websites using their Ethereum address. Third is the SelfKey Marketplace, where users can register for financial products and services with one click.
 
-If anything is unclear, please contact us at [help@selfkey.org](mailto:help@selfkey.org) and we can help you with the integrations.
+There are six sections to this document:
 
-# SelfKey Extension
+1. **SelfKey Extension**: How to integrate our Chrome plugin with your website.
+2. **SelfKey Marketplace**: How to integrate your backend and onboard new users with our marketplace.
+3. **Authentication**: How to prove users have ownership over an Ethereum blockchain address.
+4. **Configuring Your Website**: Both frontend, backend, and our API endpoints.
+5. **REST API Spec**:
+6. **Client Library**:
+
+<aside class="notice">
+Our compliance solution <a href ="https://www.kyc-chain.com">KYC-Chain</a> has every integration above built in by default.
+</aside>
+
+**How To Use This Document**
+
+You can use our API to access endpoints in the SelfKey Identity Wallet desktop application and the SelfKey Extension browser plugin. If anything is unclear, please contact us at [help@selfkey.org](mailto:help@selfkey.org) and we can help you with the integrations. The format of this document is broken down into three panels:
+
+* **Left Panel**: Table of Contents & Search Bar
+* **Middle Panel**: Information & Documentation
+* **Right Panel**: Code Samples by Language
+
+
+# A. SelfKey Extension
 
 ## Overview
 By installing the SelfKey Extension browser plugin, a user can deploy their blockchain address for authentication with your website. The SelfKey Identity Wallet (Mac OS/Win/Linux) acts as the backend layer that connects to the Ethereum blockchain.
@@ -43,19 +63,19 @@ Note: If both are not installed, there will be instructions after clicking "Logi
 
 ## Part 2: Frontend Integration
 
-To enable the SelfKey Extension as an authentication method for your website, a JavaScript library needs to be installed. This displays a "Login With SelfKey" button on your website for users to click. Clicking this button starts the login workflow. Exact instructions can be found in [Selfkey Client Lib] and more information at [LWS Config].
+To enable the SelfKey Extension as an authentication method for your website, a JavaScript library needs to be installed. This displays a "Login With SelfKey" button on your website for users to click. Clicking this button starts the login workflow.
+
+Exact instructions can be found in [Selfkey Client Lib](#f-client-library) and [configuring your website](#d-configuring-your-website).
 
 
 ### Installation Instructions:
 
-1. Integrate *Selfkey Client Lib* into the webpage
-2. Select where you want the *"Login With SelfKey"* button to appear
-3. Initialize the *"Login With SelfKey"* button by passing LWS Config to *Selfkey Client Lib*
+1. Integrate [*Selfkey Client Lib*](#f-client-library) into your website.
+2. Select where you want the *"Login With SelfKey"* button to appear.
+3. Initialize the *"Login With SelfKey"* button by passing [SelfKey Extension Config](#d-configuring-your-website) to [Selfkey Client Library](#f-client-library).
 
 
 ## Part 3: Backend Integration
-
-
 
 <aside class="notice">
 Question: Are you using <a href ="https://www.kyc-chain.com">KYC-Chain</a> or an in-house compliance tool for verifying identities of new users?
@@ -65,7 +85,7 @@ We have two options for the SelfKey Extension backend integration.
 
 ### Option 1: For Non KYC-Chain Clients
 
-The following endpoint should be implemented on your backend: [Authentication & Proof Of Ownership Challenge-Response, LWS]
+The following endpoint should be implemented on your backend: [Authentication](#c-authentication)
 
 * **Authentication** – Challenge
 * **Authentication** – Challenge Reply
@@ -73,7 +93,7 @@ The following endpoint should be implemented on your backend: [Authentication & 
 * **LWS** - Get user token
 * **LWS** - Login endpoint (optional if onAuthCallback is implemented)
 
-Currently we don't to have tools to make this process easier, but there are several options:
+Currently we don't to have tools to make this process easier, but there are several options coming soon:
 
 * **[Selfkey Node.js lib]** - WORK IN PROGRESS
 * **[Selfkey ASP.NET lib]** - WORK IN PROGRESS
@@ -81,7 +101,7 @@ Currently we don't to have tools to make this process easier, but there are seve
 
 ### Option 2: For KYC-Chain Clients
 
-If your website is integrated with KYC-Chain, you can leverage our existing [Authentication & Proof Of Ownership Challenge-Response] endpoints:
+If your website is integrated with KYC-Chain, you can leverage our existing [Authentication](#c-authentication) endpoints:
 
 1. KYC Chain should configure your instance to use RSA algorithm for token signatures.
 2. You should receive a RSA public key and configure it for token verification.
@@ -96,7 +116,7 @@ https://drive.google.com/file/d/1sxYn5cEpP1dJhe-A5peAn3bY5pmpGems/view?usp=shari
 [NEED TO UPDATE DIAGRAM]
 </aside>
 
-# SelfKey Marketplace
+# B. SelfKey Marketplace
 
 ## 1: Crypto Exchanges
 
@@ -144,16 +164,16 @@ Integration with crypto exchanges that use KYC-Chain for compliance is far more 
 * Setup one or more templates for it.
 * Provide KYC-Chain instance URL to the SelfKey Team.
 
-### For Independent Integrators (Non KYC-Chain Clients):
+### For Non KYC-Chain Clients:
 
 Currently there are no tools are available for independent implementation.
-The only option is to implement the API calls described in *KYC (Marketplace)* and *[Authentication]*.
+The only option is to implement the API calls described in [KYC for Marketplace](#e-rest-api-spec) and [Authentication](#c-authentication).
 A Node.JS tutorial for implementing the endpoints can be found here: Simple Relying Party Implementation Example
 To fix this situation, we are working on the following:
 
-* [Selfkey Node.js lib]
-* [Selfkey ASP.NET lib]
-* [Selfkey Service]
+* [Selfkey Node.js lib] (WORK IN PROGRESS)
+* [Selfkey ASP.NET lib] (WORK IN PROGRESS)
+* [Selfkey Service] (WORK IN PROGRESS)
 
 
 
@@ -209,11 +229,11 @@ const incorporationsRPDetails = {
 
 
 
-# Authentication & Proof of Ownership Challenge
+# C. Authentication
 
 ## Overview
 
-The purpose of this function is to prove the user has ownership over this public key presented for authentication. To do this, we issue a **"Challenge-Response"** protocol to cryptographically prove ownership via private key. For Details about API endpoints, please consult: REST API Spec below.
+The purpose of this function is to prove the user has ownership over this public key presented for authentication. To do this, we issue a **"Challenge-Response"** protocol to cryptographically prove ownership via private key. For Details about API endpoints, please consult: [REST API Spec](#e-rest-api-spec).
 
 <aside class="notice">Note: All communications MUST be done via secure SSL connection.</aside>
 
@@ -279,11 +299,11 @@ Required Claims:
 
 
 
-# Relying Party Configuration
-
-5/31/2019: Default endpoints outdated with implementation, Confluence document needs updating.
+# D. Configuring Your Website
 
 ## Overview
+
+5/31/2019: Default endpoints need updating.
 
 Using the SelfKey Identity Wallet (desktop application) and SelfKey Extension (browser plugin), we can utilize a user's Ethereum blockchain address for authentication to your website. The configuration object has similar structure for both SelfKey Extension and SelfKey Marketplace integrations, but has several distinctions for each and is usually placed in different places.
 
@@ -459,7 +479,10 @@ attributes: [
 * ui: Will contain a reference to selfkey ui elements. Will allow to insert custom html and hide popup if necessary.
 * NOTE: needs to be examined from security perspective, but probably safe to use.
 
-`onAuthResponse: function(err, res, ui) {
+**Example**:
+
+`
+onAuthResponse: function(err, res, ui) {
                 console.log('OnAuthResponse', err, res, ui);
                 if (err) {
                     document.getElementById(
@@ -481,11 +504,11 @@ attributes: [
                 }, 3000);
             }`
 
-
 ### extensionId
 
 * It is an internal parameter, should not be documented for the public.
 * It is used to specify SelfKey Extension id that is loaded in the browser and is used by selfkey-lib to communicate with the extension, used for development purposes.
+
 
 
 
@@ -564,14 +587,16 @@ There are no special configuration options are available for the SelfKey Marketp
 
 
 
-# REST API Spec
+# E. REST API Spec
 
 ## Overview
 
-* Our REST API is broken down into three parts: 1) Authentication, 2) SelfKey Extension, 3) KYC for New Users.
-* Authentication: Verifying and proving user has ownership of an Ethereum address via a challenge-response protocol.
-* SelfKey Extension: Bridge between the SelfKey Wallet and your website for authentication or requesting files.
-* KYC for New Users: Verify identities based off existing integrated templates with our compliance solution KYC-Chain.
+Our REST API is broken down into three parts:
+
+1. **Authentication**: Verifying  user has ownership of an Ethereum address via a challenge-response protocol.
+2. **SelfKey Extension**: Bridge between the SelfKey Wallet and your website for authentication.
+3. **KYC for New Users**:  Verify identities from existing integrated templates with our compliance tool KYC-Chain.
+
 
 <aside class="notice">
 NOTE: All communications must be done via a secure SSL connection.
@@ -580,11 +605,11 @@ NOTE: All communications must be done via a secure SSL connection.
 ## Headers Sent By SelfKey Identity wallet
 
 ### User-Agent
-* For each API request, the SelfKey Identity Wallet will send the following user agent: SelfKeyIDW/[WALLET_VERSION] where WALLET_VERSION is a semver version of our application.
+* For each API request, the SelfKey Identity Wallet sends the following user agent: SelfKeyIDW/[WALLET_VERSION] where WALLET_VERSION is a semver version of our application.
 * Example:  User-Agent: SelfKeyIDW/1.0.0-beta
 
 ### Origin
-* For each API request, the SelfKey Identity Wallet will send an 'Origin' header indicating who initialized the request.
+* For API requests, the SelfKey Identity Wallet will send an 'Origin' header indicating who initialized the request.
 * The default value is IDW indicating that the request was initialized by the SelfKey Identity Wallet.
 * For our browser plugin SelfKey Extension, it will rely on the SelfKey Identity Wallet to determine which side initialized the request, and the Origin header will be set to this value.
 * Example: "Origin: IDW" or "Origin: https://confluence.kyc-chain.com"
@@ -1646,7 +1671,7 @@ Example:
 
 
 
-# SelfKey Client library
+# F. Client Library
 
 * SelfKey Client Lib is a client library used to integrate our Chrome browser plugin SelfKey Extension to your website.
 * We have four sample client integrations with Javascript, Angular 1, React, and Vue.
