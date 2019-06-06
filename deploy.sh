@@ -17,15 +17,10 @@ Options:
                            commit's message.
       --source-only        Only build but not push
       --push-only          Only push but not build
-      --use-docker         Build using a docker container and publish
 "
 
 
 run_build() {
-  bundle exec middleman build --clean
-}
-
-run_build_with_docker() {
   bash build_with_docker.sh
 }
 
@@ -213,9 +208,6 @@ sanitize() {
 if [[ $1 = --source-only ]]; then
   run_build
 elif [[ $1 = --push-only ]]; then
-  main "$@"
-elif [[ $1 = --use-docker ]]; then
-  run_build_with_docker
   main "$@"
 else
   run_build
