@@ -1,3 +1,44 @@
+# SelfKey Integration Docs
+
+## Get Started
+
+### Prerequisites
+
+You're going to need:
+
+ - **Linux, MacOS or Windows**
+ - **[Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) (Compose already comes bundled with docker for MacOS and Windows)**
+
+### Getting Set Up
+
+1. Clone *selfkey-integration-docs* to your hard drive with 
+```shell
+git clone https://github.com/SelfKeyFoundation/selfkey-integration-docs.git
+```
+3. Enter project folder
+```shell
+cd selfkey-integration-docs
+```
+4. Initialize and start the local development server:
+
+```shell
+docker-compose up
+```
+
+You can now see the docs at http://localhost:4567.
+
+## Deploy to Github Pages
+
+```shell
+./deploy.sh
+```
+
+
+<br><br><hr><hr>
+
+
+## Slate Original Readme:
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
   <br>
