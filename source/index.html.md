@@ -2,8 +2,8 @@
 title: SelfKey API Documents
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
   - javascript
+  - shell
 
 toc_footers:
   - <a href='https://www.selfkey.org/download'>Download - SelfKey Identity Wallet</a>
@@ -21,13 +21,13 @@ search: true
 
 **Welcome to the SelfKey API**
 
-The SelfKey ecosystem is broken down into three main parts. First is the SelfKey Identity Wallet, a desktop Ethereum wallet on Mac OS, Windows, and Linux. Second is the SelfKey Extension, a Chrome browser plugin that allows a user to authenticate with websites using their Ethereum address. Third is the SelfKey Marketplace, where users can register for financial products and services with one click.
+The SelfKey ecosystem is broken down into three main parts. First is the SelfKey Identity Wallet, a desktop Ethereum wallet on Mac OS, Windows, and Linux. Second is the SelfKey Extension, a Chrome browser plugin that allows a user to authenticate with websites using their Decentralized Identifier (DID). Third is the SelfKey Marketplace, where users can register for financial products and services with one click.
 
 There are six sections to this document:
 
 1. **SelfKey Extension**: How to integrate our Chrome plugin with your website.
 2. **SelfKey Marketplace**: How to integrate your backend and onboard new users with our marketplace.
-3. **Authentication**: How to prove users have ownership over an Ethereum blockchain address.
+3. **Authentication**: How to prove users have ownership over a Decentralized Identifier (DID).
 4. **Configuring Your Website**: Both frontend, backend, and our API endpoints.
 5. **REST API Spec**:
 6. **Client Library**:
@@ -48,12 +48,12 @@ You can use our API to access endpoints in the SelfKey Identity Wallet desktop a
 # A. SelfKey Extension
 
 ## Overview
-By installing the SelfKey Extension browser plugin, a user can deploy their blockchain address for authentication with your website. The SelfKey Identity Wallet (Mac OS/Win/Linux) acts as the backend layer that connects to the Ethereum blockchain.
+By installing the SelfKey Extension browser plugin, a user can deploy their Decentralized Identifier (DID) for authentication with your website. The SelfKey Identity Wallet (Mac OS/Win/Linux) acts as the backend layer that connects to the Ethereum blockchain.
 
 ## Part 1: User Requirements
-To successfully use their blockchain address as an authentication method, there are two applications that must be installed and activated by the user.
+For a user to successfully use their Decentralized Identifier (DID) as an authentication method, there are two applications that must be installed and activated by the user.
 
-* Step 1: [SelfKey Identity Wallet] (https://selfkey.org/download/) must be installed, opened, and logged in to an Ethereum address.
+* Step 1: [SelfKey Identity Wallet] (https://selfkey.org/download/) must be installed, opened, and logged in.
 * Step 2: [Selfkey Extension] browser plugin must be installed and activated.
 
 <aside class="success">
@@ -108,26 +108,14 @@ If your website is integrated with KYC-Chain, you can leverage our existing [Aut
 3. You should override authentication endpoints in their config to point to KYC-Chain.
 
 
-## Part 4: Flowchart
-
-https://drive.google.com/file/d/1sxYn5cEpP1dJhe-A5peAn3bY5pmpGems/view?usp=sharing
-
-<aside class="notice">
-[NEED TO UPDATE DIAGRAM]
-</aside>
-
 # B. SelfKey Marketplace
 
 ## 1: Crypto Exchanges
 
-Information on cryptocurrency exchanges are loaded into the SelfKey Identity Wallet from an Airtable file. There are two files: one for development (named ExchangesDev) and production (named Exchanges). To access the development Airtable, run the [SelfKey Identity Wallet] (https://www.selfkey.org/download) from terminal with: NODE_ENV=development
+<aside class="notice">
+Currently, integration for the SelfKey Marketplace is only available for crypto exchange clients that use KYC-Chain, our in-house compliance tool that helps with KYC onboarding of new users.
+</aside>
 
-
-### How To Integrate A New Exchange (Non KYC-Chain Clients):
-
-1. Add details to the Airtable.
-2. Build config object according to this spec (Requirements should be negotiated with your website)
-3. Paste it as JSON inside *'relying_party_config'* field.
 
 ####
 
@@ -154,74 +142,23 @@ Information on cryptocurrency exchanges are loaded into the SelfKey Identity Wal
 
 ### How To Integrate A New Exchange (KYC-Chain Clients)
 
-Integration with crypto exchanges that use KYC-Chain for compliance is far more seamless because there is a default integration built in with SelfKey. The configuration for them will usually look like this to the right:
+Integration with crypto exchanges that use [KYC-Chain](https://www.kyc-chain.com) for compliance is far more seamless because there is a default integration built in with SelfKey. The configuration for them will usually look like this to the right:
 
 
-### For KYC-Chain
+### How To Integrate A New Exchange (Non-KYC-Chain Clients)
 
-* Setup the relying party instance.
-* Specify the required JWT algorithm (HMAC/RSA).
-* Setup one or more templates for it.
-* Provide KYC-Chain instance URL to the SelfKey Team.
-
-### For Non KYC-Chain Clients:
-
-Currently there are no tools are available for independent implementation.
-The only option is to implement the API calls described in [KYC for Marketplace](#e-rest-api-spec) and [Authentication](#c-authentication).
-A Node.JS tutorial for implementing the endpoints can be found here: Simple Relying Party Implementation Example
-To fix this situation, we are working on the following:
-
-* [Selfkey Node.js lib] (WORK IN PROGRESS)
-* [Selfkey ASP.NET lib] (WORK IN PROGRESS)
-* [Selfkey Service] (WORK IN PROGRESS)
-
-
+Not currently available. Will update API Documentation when tools are ready for non-clients.
 
 
 ## 2: Incorporations
 
-```shell
-const incorporationsRPDetails = {
-    name: 'Incorporations',
-    status: 'Active',
-    description: 'Incorporations',
-    relying_party_config: {
-        rootEndpoint: config.incorporationsInstance,
-        endpoints: {
-            '/templates/:id': `${config.incorporationsInstance}templates/:id?format=minimum`,
-            '/user/token': `${config.incorporationsInstance}auth/token`
-        }
-    }
-}
-
-```
-
-```javascript
-const incorporationsRPDetails = {
-    name: 'Incorporations',
-    status: 'Active',
-    description: 'Incorporations',
-    relying_party_config: {
-        rootEndpoint: config.incorporationsInstance,
-        endpoints: {
-            '/templates/:id': `${config.incorporationsInstance}templates/:id?format=minimum`,
-            '/user/token': `${config.incorporationsInstance}auth/token`
-        }
-    }
-}
-```
-
-* Currently we have one hardcoded relying party – Flag Theory .
-* To further integrate other relying parties further development is needed.
-* Each jurisdiction is a template in Flag Theory KYC-Chain instance.
-
-<aside class="warning">FURTHER DEVELOPMENT NEEDED</aside>
+<aside class="warning">More documentation coming soon.</aside>
 
 
 
 ## 3: Bank Accounts
 
-<aside class="warning">FURTHER DEVELOPMENT NEEDED</aside>
+<aside class="warning">More documentation coming soon.</aside>
 
 
 
@@ -233,13 +170,13 @@ const incorporationsRPDetails = {
 
 ## Overview
 
-The purpose of this function is to prove the user has ownership over this public key presented for authentication. To do this, we issue a **"Challenge-Response"** protocol to cryptographically prove ownership via private key. For Details about API endpoints, please consult: [REST API Spec](#e-rest-api-spec).
+The purpose of this function is to prove the user has ownership over a Decentralized Identifier (DID) presented for authentication. To do this, we issue a **"Challenge-Response"** protocol to cryptographically prove ownership via private key. For Details about API endpoints, please consult: [REST API Spec](#e-rest-api-spec).
 
 <aside class="notice">Note: All communications MUST be done via secure SSL connection.</aside>
 
 ## Part 1: Challenge-Response Protocol
 
-1. The SelfKey Identity Wallet requests a unique nonce from the your website and sends the public key.
+1. The SelfKey Identity Wallet requests a unique nonce from the your website and sends the Ethereum public key.
 2. Your website responds with a Challenge JWT Token containing the public key in subject and nonce claim.
 3. The wallet receives the Challenge Token, decodes it and extracts the nonce.
 4. The wallet creates a signature of the nonce signed with it's private key.
@@ -303,9 +240,7 @@ Required Claims:
 
 ## Overview
 
-5/31/2019: Default endpoints need updating.
-
-Using the SelfKey Identity Wallet (desktop application) and SelfKey Extension (browser plugin), we can utilize a user's Ethereum blockchain address for authentication to your website. The configuration object has similar structure for both SelfKey Extension and SelfKey Marketplace integrations, but has several distinctions for each and is usually placed in different places.
+Using the SelfKey Identity Wallet (desktop application) and SelfKey Extension (browser plugin), we can utilize a user's Decentralized Identifier (DID) for authentication to your website. The configuration object has similar structure for both SelfKey Extension and SelfKey Marketplace integrations, but has several distinctions for each and is usually placed in different places.
 
 The SelfKey Extension configuration object would be usually passed directly when initialized inside selfkey-client-lib. The SelfKey Marketplace integration object will usually be stored in the Selfkey API (Airtable inside *relying_party_config field*), you will need to submit the configuration (or all relevant details) to us.
 
@@ -462,26 +397,9 @@ attributes: [
 * NOTE: Current implementation is not updated with this config options, tracked in issue https://github.com/SelfKeyFoundation/Identity-Wallet/issues/1001
 
 
+####
 
-
-### onAuthCallback
-
-
-
-* An optional callback that can be passed to configuration object.
-* If it is passed, client-lib will call it instead of performing the default login behavior (calling login endpoint and redirecting to provided URL).
-* It will be called on each login/signup attempt.
-
-**Arguments**:
-
-* error: Will contain error object if auth/signup failed. Will be null on successful authentication.
-* response: Will contain response object. Not modified, as returned from /auth/token endpoint.
-* ui: Will contain a reference to selfkey ui elements. Will allow to insert custom html and hide popup if necessary.
-* NOTE: needs to be examined from security perspective, but probably safe to use.
-
-**Example**:
-
-`
+```javascript
 onAuthResponse: function(err, res, ui) {
                 console.log('OnAuthResponse', err, res, ui);
                 if (err) {
@@ -502,7 +420,25 @@ onAuthResponse: function(err, res, ui) {
                 setTimeout(() => {
                     ui.popup.hide();
                 }, 3000);
-            }`
+            }
+```
+
+### onAuthCallback
+
+
+
+* An optional callback that can be passed to configuration object.
+* If it is passed, client-lib will call it instead of performing the default login behavior (calling login endpoint and redirecting to provided URL).
+* It will be called on each login/signup attempt.
+
+**Arguments**:
+
+* error: Will contain error object if auth/signup failed. Will be null on successful authentication.
+* response: Will contain response object. Not modified, as returned from /auth/token endpoint.
+* ui: Will contain a reference to selfkey ui elements. Will allow to insert custom html and hide popup if necessary.
+* NOTE: needs to be examined from security perspective, but probably safe to use.
+
+
 
 ### extensionId
 
@@ -514,8 +450,10 @@ onAuthResponse: function(err, res, ui) {
 
 
 ### Complete SelfKey Extension Configuration Example
+> Complete SelfKey Extension Configuration Example
 
-`{
+```javascript
+{
             ui: {
                 el: '.lwsClient'
             },
@@ -564,9 +502,12 @@ onAuthResponse: function(err, res, ui) {
                     ui.popup.hide();
                 }, 3000);
             }
- }`
+ }
+```
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+<center>*This area intentionally left blank (see right).*</center>
 
 ## 3: SelfKey Marketplace Configuration
 
@@ -575,15 +516,19 @@ There are no special configuration options are available for the SelfKey Marketp
 
 ### Complete SelfKey Marketplace Configuration Example:
 
-* This is a simple integration that will only contain the root endpoint.
-* If you are using our compliance solution KYC-Chain, integrations will also contain an override for the template endpoints:
-
-`{
+```javascript
+{
         rootEndpoint: "https://kyc-instance-url.com/api/v1/",
         endpoints: {
             '/templates/:id': `https://kyc-instance-url.com/api/v1/templates/:id?format=minimum`
         }
-}`
+}
+```
+
+
+* This is a simple integration that will only contain the root endpoint.
+* If you are using our compliance solution KYC-Chain, integrations will also contain an override for the template endpoints.
+
 
 
 
@@ -593,7 +538,7 @@ There are no special configuration options are available for the SelfKey Marketp
 
 Our REST API is broken down into three parts:
 
-1. **Authentication**: Verifying  user has ownership of an Ethereum address via a challenge-response protocol.
+1. **Authentication**: Verifying user ownership of a Decentralized Identifier (DID) via a challenge-response protocol.
 2. **SelfKey Extension**: Bridge between the SelfKey Wallet and your website for authentication.
 3. **KYC for New Users**:  Verify identities from existing integrated templates with our compliance tool KYC-Chain.
 
@@ -618,7 +563,7 @@ NOTE: All communications must be done via a secure SSL connection.
 
 
 ## 1: Authentication
-* The goal of this function is to prove that the user has ownership over the presented public Ethereum address.
+* The goal of this function is to prove that the user has ownership over the presented Decentralized Identifier (DID).
 * This is done through a cryptographic challenge-response protocol as detailed below.
 
 
@@ -648,14 +593,6 @@ Headers:
 
 ### Response
 
-> JSON payload containing one key 'jwt'. It will contain the challenge token.
-
-```Shell
-`{
-  "jwt":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIweDc0NWZhYmQyZWZkYmY5ZGViMzE2NDJiMjA1NGVlMmJjNzg2ZWJlYTA5NmQzNmMwYjFiMzA1ZWRhYWY5ODEzYzZiNDA1MWEzMzQyNjZjOWY0MGI3MTQzODFjMDNkYTVkYTMxNWVjMjA3MDAwZmE3YmI3NDg2OGE1ZTYxNDIxZTMxIiwiaWF0IjoxNTE2MjM5MDIyLCJub25jZSI6IjlWeDFRUmswbzk2UGNKcDhXbnhvNy9DMjdCQnJ0aFdHZTlPcUZ6OGRwa2VjbVNVQ0Q3RnJQNUhpZW5vWUg3OTN1cG1nYmtLNFY3c0JMKzR6YWJkQjJRPT0iLCJzY29wZSI6ImF1dGgvY2hhbGxlbmdlIn0.5V2BBI53C0NOzmaIcvNNg_04O6MmTQc4oFvRJ8vf5i0"
-}`
-
-```
 Success (Status Code: 200)
 
 Body:
@@ -805,12 +742,27 @@ Error - Bad Payload (Status Code: 422)
 
 ### Create User
 
+```Javascript
+[
+    { "id": "first_name", "schemaId": "http://platform.selfkey.org/schema/attribute/first-name.json", "value": "First" },
+    { "id": "passport", "schemaId": "https://platform.selfkey.org/schema/attribute/passport.json", "value": {
+         "image": { "mimeType": "image/jpg", "size": 3000000000, "content": "file-id-1"},
+         "issued": "15-05-2019",
+         "expires": "16-05-2019",
+         "selfie": { "mimeType": "image/jpg", "size": "28525854564", "content": "file-id-2"},
+     } },
+     {
+        "id": "nationality",
+        "schemaId": "https://platform.selfkey.org/schema/attribute/nationality.json",
+        "value": { "country": "AT", "denonym": "Austrian"}
+     }
+]
+```
 
 
 
 
-
-Request:
+**Request**:
 
 `POST /users`
 
@@ -826,29 +778,11 @@ Body:
 
 JSON object containing ID attributes from the SelfKey Identity Wallet. Each ID attribute contains at least the following keys:
 
-* id (optional): provided in SelfKey Extension config, used for attributing internal application structure
-* schemaId: The id of one of the supported id attributes. Can be found here: https://platform.selfkey.org/repository.json
-* value: The value of the attribute.
+* **id** (optional): provided in SelfKey Extension config, used for attributing internal application structure
+* **schemaId**: The id of one of the supported id attributes. Can be found here: https://platform.selfkey.org/repository.json
+* **value**: The value of the attribute.
 
 Note, document attributes should have all files uploaded first via the files endpoint and their content replaced by id.
-
-
-`
-[
-    { "id": "first_name", "schemaId": "http://platform.selfkey.org/schema/attribute/first-name.json", "value": "First" },
-    { "id": "passport", "schemaId": "https://platform.selfkey.org/schema/attribute/passport.json", "value": {
-         "image": { "mimeType": "image/jpg", "size": 3000000000, "content": "file-id-1"},
-         "issued": "15-05-2019",
-         "expires": "16-05-2019",
-         "selfie": { "mimeType": "image/jpg", "size": "28525854564", "content": "file-id-2"},
-     } },
-     {
-        "id": "nationality",
-        "schemaId": "https://platform.selfkey.org/schema/attribute/nationality.json",
-        "value": { "country": "AT", "denonym": "Austrian"}
-     }
-]
-`
 
 
 ### Response
@@ -865,19 +799,9 @@ Error – Bad Request (Status Code: 422)
 
 ### Get User Token
 
-```shell
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIweDc0NWZhYmQyZWZkYmY5ZGViMzE2NDJiMjA1NGVlMmJjNzg2ZWJlYTA5NmQzNmMwYjFiMzA1ZWRhYWY5ODEzYzZiNDA1MWEzMzQyNjZjOWY0MGI3MTQzODFjMDNkYTVkYTMxNWVjMjA3MDAwZmE3YmI3NDg2OGE1ZTYxNDIxZTMxIiwic2NvcGUiOiJhdXRoL2xvZ2luIiwiaWF0IjoxNTQ3NjIyNDA1fQ.xajZn2UmKtCT1WeLleye8DoCCcYnbavVnZ5TZ0bK7CM"
-}
-```
 
-```javascript
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIweDc0NWZhYmQyZWZkYmY5ZGViMzE2NDJiMjA1NGVlMmJjNzg2ZWJlYTA5NmQzNmMwYjFiMzA1ZWRhYWY5ODEzYzZiNDA1MWEzMzQyNjZjOWY0MGI3MTQzODFjMDNkYTVkYTMxNWVjMjA3MDAwZmE3YmI3NDg2OGE1ZTYxNDIxZTMxIiwic2NvcGUiOiJhdXRoL2xvZ2luIiwiaWF0IjoxNTQ3NjIyNDA1fQ.xajZn2UmKtCT1WeLleye8DoCCcYnbavVnZ5TZ0bK7CM"
-}
-```
 
-Request:
+**Request**:
 
 `GET /users/token`
 
@@ -892,7 +816,15 @@ Success (Status Code: 200)
 
 Body:
 
-JSON object, structure is defined by relying party. This object is passed back to your website.If your website waits for the response to be parsed and acted upon automatically on client side, the payload should contain one of these two keys:
+JSON object, structure is defined by relying party. This object is passed back to your website.
+
+*Example*:
+
+`{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIweDc0NWZhYmQyZWZkYmY5ZGViMzE2NDJiMjA1NGVlMmJjNzg2ZWJlYTA5NmQzNmMwYjFiMzA1ZWRhYWY5ODEzYzZiNDA1MWEzMzQyNjZjOWY0MGI3MTQzODFjMDNkYTVkYTMxNWVjMjA3MDAwZmE3YmI3NDg2OGE1ZTYxNDIxZTMxIiwic2NvcGUiOiJhdXRoL2xvZ2luIiwiaWF0IjoxNTQ3NjIyNDA1fQ.xajZn2UmKtCT1WeLleye8DoCCcYnbavVnZ5TZ0bK7CM"
+}`
+
+If your website waits for the response to be parsed and acted upon automatically on client side, the payload should contain one of these two keys:
 
 * "token" – Will be posted to [Login Endpoint]
 * "redirectTo" – will cause a redirect to the provided URL
@@ -934,7 +866,7 @@ Body:
 
 ### Login Endpoint
 
-Request:
+**Request**:
 
 `POST /login
 `
@@ -954,7 +886,7 @@ JSON object containing the payload received from /users/token endpoint
 }`
 
 
-Response:
+**Response**:
 
 Success (Status Code: 200)
 
@@ -976,27 +908,8 @@ Example:
 
 ### List Templates  
 
-* These templates are created to run identity verification checks based on submitted attributes or documents.
-* Returns a list of templates for the relying party, and this endpoint does not require Authorization.
-
-Request:
-
-`GET /templates`
-
-Headers
-
-* User-Agent,
-* Origin,
-* Accept: application/json
-
-
-Response:
-
-Success (Status Code: 200)
-
-Example:
-
-`[
+```JavaScript
+[
     {
         "name": "Token Sale Signup for Individuals",
         "description": "For individuals wishing to participate in the Example Co token sale.",
@@ -1008,20 +921,15 @@ Example:
         "templateId": "534bad4b8342419e5a94b1d2",
 
     }
-]`
+]
+```
 
+* These templates are created to run identity verification checks based on submitted attributes or documents.
+* Returns a list of templates for the relying party, and this endpoint does not require Authorization.
 
-### Get Template Details
+**Request**:
 
-Returns a specific template details.
-
-Request:
-
-`GET /templates/${templateId}`
-
-URL params:
-
-* templateId: the id of the requested template
+`GET /templates`
 
 Headers
 
@@ -1030,13 +938,19 @@ Headers
 * Accept: application/json
 
 
-Response:
+**Response**:
 
 Success (Status Code: 200)
 
-Example:
 
-`{
+
+
+
+### Get Template Details
+
+```javascript
+`
+{
   "id": "5c6619ae1ea6440111989852",
   "description": "Standard Attributes and Documents",
   "atributes": [
@@ -1073,9 +987,34 @@ Example:
   ],
   "name": "Standard Attributes"
 `
+```
 
 
 
+
+Returns a specific template details.
+
+**Request**:
+
+`GET /templates/${templateId}`
+
+URL params:
+
+* templateId: the id of the requested template
+
+Headers
+
+* User-Agent,
+* Origin,
+* Accept: application/json
+
+
+**Response**:
+
+Success (Status Code: 200)
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ### Create KYC File
@@ -1083,7 +1022,7 @@ Example:
 `POST /files`
 
 
-Request:
+**Request**:
 
 Headers:
 
@@ -1096,13 +1035,13 @@ Headers:
 Body: binary file upload
 
 
-Response:
+**Response**:
 
 Success (Status Code: 200)
 
 Body: JSON object with single key "id" representing the created file id
 
-Example:
+*Example*:
 
 `{
    "id": "file-id-1"
@@ -1143,7 +1082,7 @@ Body:
 
 Error - Bad Payload (Status Code: 422)
 
-Example:
+*Example*:
 
 `{
   "code": "file_invalid",
@@ -1156,7 +1095,7 @@ Example:
 `GET /users/files/${fileId}`
 
 
-Request:
+**Request**:
 
 URL params:
 
@@ -1208,28 +1147,9 @@ Body:
 
 ### Create KYC Application
 
-`POST /applications`
+```JavaScript
 
-Request:
-
-Headers:
-
-* User-Agent
-* Origin
-* Accept: application/json
-* Authorization: wallet token
-
-Body: JSON object containing application object
-
-Application object will contain:
-
-* templateId – the id of a template which was used to fill application object
-* attributes – a list of id attributes, each attribute contains
-* id: internal KYC system id assigned to the attribute (from template)
-* schemaId: the id of the schema filled (list is available in https://platform.selfkey.org/repository.json)
-* data: the data filled according for the schema for this attribute
-
-`{
+{
   "templateId": "5c6533c440e7080070dda1f4",
   "attributes": [
     {
@@ -1261,10 +1181,36 @@ Application object will contain:
       }
     }
   ]
-}`
+}
+```
 
 
-Response:
+
+
+`POST /applications`
+
+**Request**:
+
+Headers:
+
+* User-Agent
+* Origin
+* Accept: application/json
+* Authorization: wallet token
+
+Body: JSON object containing application object
+
+Application object will contain:
+
+* templateId – the id of a template which was used to fill application object
+* attributes – a list of id attributes, each attribute contains
+* id: internal KYC system id assigned to the attribute (from template)
+* schemaId: the id of the schema filled (list is available in https://platform.selfkey.org/repository.json)
+* data: the data filled according for the schema for this attribute
+
+
+
+**Response**:
 
 Success (Status Code: 200)
 
@@ -1324,29 +1270,8 @@ Example:
 
 ### List KYC Applications
 
-`GET /applications`
-
-
-Request
-
-Headers:
-
-* User-Agent
-* Origin
-* Accept: application/json
-* Authorization: wallet token
-
-
-
-Response:
-
-Success (Status Code: 200)
-
-Body: JSON object containing a list of application objects
-
-Example:
-
-`[
+```JavaScript
+[
   {
     "id": "5c6e013704fb92059af59147",
     "template": "5c6dfa25b0745105685253bd",
@@ -1359,7 +1284,29 @@ Example:
     "statusName": "In Progress",
     "currentStatus": 6
   }
-]`
+]
+```
+
+`GET /applications`
+
+
+**Request**:
+
+Headers:
+
+* User-Agent
+* Origin
+* Accept: application/json
+* Authorization: wallet token
+
+
+
+**Response**:
+
+Success (Status Code: 200)
+
+Body: JSON object containing a list of application objects
+
 
 
 
@@ -1401,36 +1348,8 @@ Body
 
 ### Update KYC Applications
 
-`PATCH /applications/${applicationId}`
-
-Takes attributes from payload and updates them inside application object on server
-
-URL params:
-
-* applicationId – The id of the application to update
-
-
-
-Request:
-
-Headers:
-
-* User-Agent
-* Origin
-* Accept: application/json
-* Authorization: wallet token
-
-Body: JSON object containing application object
-
-Application object will contain:
-
-* templateId – the id of a template which was used to fill application object
-* attributes – a list of id attributes, each attribute contains
-* id: internal kyc system id assigned to the attribute ( from template)
-* schemaId: the id of the schema filled (list is available in https://platform.selfkey.org/repository.json)
-* data: the data filled according for the schema for this attribute
-
-`{
+```JavaScript
+{
   "templateId": "5c6533c440e7080070dda1f4",
   "attributes": [
     {
@@ -1462,11 +1381,45 @@ Application object will contain:
       }
     }
   ]
-}`
+}
+```
 
 
 
-Response:
+
+`PATCH /applications/${applicationId}`
+
+Takes attributes from payload and updates them inside application object on server
+
+URL params:
+
+* applicationId – The id of the application to update
+
+
+
+**Request**:
+
+Headers:
+
+* User-Agent
+* Origin
+* Accept: application/json
+* Authorization: wallet token
+
+Body: JSON object containing application object
+
+Application object will contain:
+
+* templateId – the id of a template which was used to fill application object
+* attributes – a list of id attributes, each attribute contains
+* id: internal kyc system id assigned to the attribute ( from template)
+* schemaId: the id of the schema filled (list is available in https://platform.selfkey.org/repository.json)
+* data: the data filled according for the schema for this attribute
+
+
+
+
+**Response**:
 
 Success (Status Code: 204)
 
@@ -1507,7 +1460,7 @@ Body:
 
 Error - Bad Payload (Status Code: 422, Several Errors Possible)
 
-Example:
+*Example*:
 
 `{
   "message": "Attribute referenced files not found"
@@ -1516,6 +1469,16 @@ Example:
 
 
 ### Get Application Details
+
+```javascript
+`{
+  "id": "5c6e013704fb92059af59147",
+  "payments": [],
+  "template": "5c6dfa25b0745105685253bd",
+  "statusName": "In Progress",
+  "currentStatus": 6
+}`
+```
 
 `GET /applications/${applicationId}`
 
@@ -1526,7 +1489,7 @@ URL params:
 * applicationId – The id of the application.
 
 
-Request
+**Request**
 
 Headers:
 
@@ -1536,22 +1499,11 @@ Headers:
 * Authorization: wallet token
 
 
-Response
+**Response**
 
 Success (Status Code: 200)
 
 Body: JSON object containing a list of application objects
-
-Example:
-
-`{
-  "id": "5c6e013704fb92059af59147",
-  "payments": [],
-  "template": "5c6dfa25b0745105685253bd",
-  "statusName": "In Progress",
-  "currentStatus": 6
-}`
-
 
 
 Error - Bad Request (Status Code: 400)
@@ -1594,7 +1546,7 @@ Body:
 `POST /applications/${applicationId}/payments`
 
 
-Request
+**Request**
 
 Headers:
 
@@ -1614,19 +1566,23 @@ Application payment object will contain:
 }`
 
 
-Response
+**Response**
 
 Success (Status Code: 200)
 
-Body: JSON object with created payment details
+####
 
-Example:
-
+```javascript
 `{
   "createdAt": "2019-02-21T03:44:47.555Z",
   "id": "5c6e1eaf049ff100646cedd8",
   "transactionHash": "0x8b69a0ca303305a92d8d028704d65e4942b7ccc9a99917c8c9e940c9d57a9662"
 }`
+```
+
+
+Body: JSON object with created payment details
+
 
 
 Error - Bad Request (Status Code: 400)
@@ -1671,16 +1627,12 @@ Example:
 
 
 
-# F. Client Library
+# F. SelfKey Client Lib
 
 * SelfKey Client Lib is a client library used to integrate our Chrome browser plugin SelfKey Extension to your website.
 * We have four sample client integrations with Javascript, Angular 1, React, and Vue.
 * Repository: https://github.com/SelfKeyFoundation/selfkey-js-client
 * NOTE: All npm repos should be grouped under `@seflkey` organization prefix
-
-
-
-## Overview
 
 ## 1. Javacript Client
 
@@ -1748,7 +1700,10 @@ Prerequisites:
 Init Example:
 
 ####
-`lws.init({
+
+```shell
+
+lws.init({
             ui: {
                 el: '.lwsClient'
             },
@@ -1776,7 +1731,9 @@ Init Example:
                     schemaId: 'http://platform.selfkey.org/schema/attribute/national-id.json'
                 }
            ]
-});`
+});
+```
+
 
 **teardown**
 
