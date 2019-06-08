@@ -223,7 +223,7 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#a-selfkey-extension" class="toc-h1 toc-link" data-title="A. SelfKey Extension">A. SelfKey Extension</a>
+            <a href="#login-with-selfkey" class="toc-h1 toc-link" data-title="Login With SelfKey">Login With SelfKey</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
@@ -240,7 +240,7 @@
               </ul>
           </li>
           <li>
-            <a href="#b-selfkey-marketplace" class="toc-h1 toc-link" data-title="B. SelfKey Marketplace">B. SelfKey Marketplace</a>
+            <a href="#selfkey-marketplace" class="toc-h1 toc-link" data-title="SelfKey Marketplace">SelfKey Marketplace</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#1-crypto-exchanges" class="toc-h2 toc-link" data-title="1: Crypto Exchanges">1: Crypto Exchanges</a>
@@ -254,24 +254,30 @@
               </ul>
           </li>
           <li>
-            <a href="#c-configuring-your-website" class="toc-h1 toc-link" data-title="C. Configuring Your Website">C. Configuring Your Website</a>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#overview-2" class="toc-h2 toc-link" data-title="Overview">Overview</a>
                   </li>
                   <li>
-                    <a href="#1-common-configuration-properties" class="toc-h2 toc-link" data-title="1: Common Configuration Properties">1: Common Configuration Properties</a>
+                    <a href="#part-1-challenge-response-protocol" class="toc-h2 toc-link" data-title="Part 1: Challenge-Response Protocol">Part 1: Challenge-Response Protocol</a>
                   </li>
                   <li>
-                    <a href="#2-selfkey-extension-configuration" class="toc-h2 toc-link" data-title="2: SelfKey Extension Configuration">2: SelfKey Extension Configuration</a>
+                    <a href="#part-2-jwt-json-web-token" class="toc-h2 toc-link" data-title="Part 2: JWT-JSON Web token">Part 2: JWT-JSON Web token</a>
                   </li>
                   <li>
-                    <a href="#3-selfkey-marketplace-configuration" class="toc-h2 toc-link" data-title="3: SelfKey Marketplace Configuration">3: SelfKey Marketplace Configuration</a>
+                    <a href="#part-3-challenge-token" class="toc-h2 toc-link" data-title="Part 3: Challenge Token">Part 3: Challenge Token</a>
+                  </li>
+                  <li>
+                    <a href="#part-4-wallet-token" class="toc-h2 toc-link" data-title="Part 4: Wallet Token">Part 4: Wallet Token</a>
+                  </li>
+                  <li>
+                    <a href="#part-5-how-to-verify-wallet-token-on-other-servers" class="toc-h2 toc-link" data-title="Part 5: How To Verify Wallet Token On Other Servers">Part 5: How To Verify Wallet Token On Other Servers</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#e-selfkey-client-lib" class="toc-h1 toc-link" data-title="E. SelfKey Client Lib">E. SelfKey Client Lib</a>
+            <a href="#selfkey-client-lib" class="toc-h1 toc-link" data-title="SelfKey Client Lib">SelfKey Client Lib</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#1-javacript-client" class="toc-h2 toc-link" data-title="1. Javacript Client">1. Javacript Client</a>
@@ -297,33 +303,10 @@
               </ul>
           </li>
           <li>
-            <a href="#e-authentication" class="toc-h1 toc-link" data-title="E. Authentication">E. Authentication</a>
+            <a href="#rest-api-spec" class="toc-h1 toc-link" data-title="REST API Spec">REST API Spec</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#overview-3" class="toc-h2 toc-link" data-title="Overview">Overview</a>
-                  </li>
-                  <li>
-                    <a href="#part-1-challenge-response-protocol" class="toc-h2 toc-link" data-title="Part 1: Challenge-Response Protocol">Part 1: Challenge-Response Protocol</a>
-                  </li>
-                  <li>
-                    <a href="#part-2-jwt-json-web-token" class="toc-h2 toc-link" data-title="Part 2: JWT-JSON Web token">Part 2: JWT-JSON Web token</a>
-                  </li>
-                  <li>
-                    <a href="#part-3-challenge-token" class="toc-h2 toc-link" data-title="Part 3: Challenge Token">Part 3: Challenge Token</a>
-                  </li>
-                  <li>
-                    <a href="#part-4-wallet-token" class="toc-h2 toc-link" data-title="Part 4: Wallet Token">Part 4: Wallet Token</a>
-                  </li>
-                  <li>
-                    <a href="#part-5-how-to-verify-wallet-token-on-other-servers" class="toc-h2 toc-link" data-title="Part 5: How To Verify Wallet Token On Other Servers">Part 5: How To Verify Wallet Token On Other Servers</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#f-rest-api-spec" class="toc-h1 toc-link" data-title="F. REST API Spec">F. REST API Spec</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#overview-4" class="toc-h2 toc-link" data-title="Overview">Overview</a>
                   </li>
                   <li>
                     <a href="#headers-sent-by-selfkey-identity-wallet" class="toc-h2 toc-link" data-title="Headers Sent By SelfKey Identity wallet">Headers Sent By SelfKey Identity wallet</a>
@@ -336,6 +319,23 @@
                   </li>
                   <li>
                     <a href="#3-kyc-selfkey-marketplace" class="toc-h2 toc-link" data-title="3: KYC (SelfKey Marketplace)">3: KYC (SelfKey Marketplace)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#configuring-your-website" class="toc-h1 toc-link" data-title="Configuring Your Website">Configuring Your Website</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview-4" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#1-common-configuration-properties" class="toc-h2 toc-link" data-title="1: Common Configuration Properties">1: Common Configuration Properties</a>
+                  </li>
+                  <li>
+                    <a href="#2-selfkey-extension-configuration" class="toc-h2 toc-link" data-title="2: SelfKey Extension Configuration">2: SelfKey Extension Configuration</a>
+                  </li>
+                  <li>
+                    <a href="#3-selfkey-marketplace-configuration" class="toc-h2 toc-link" data-title="3: SelfKey Marketplace Configuration">3: SelfKey Marketplace Configuration</a>
                   </li>
               </ul>
           </li>
@@ -355,12 +355,12 @@
 <p>There are six sections to this document:</p>
 
 <ol>
-<li><strong>SelfKey Extension</strong>: Our Chrome browser plugin and how it works.</li>
-<li><strong>SelfKey Marketplace</strong>: Sign up new users and onboard them with our marketplace.</li>
-<li><strong>Configuring Your Website</strong>: Both frontend, backend, and our API endpoints.</li>
-<li><strong>SelfKey Client Lib</strong>: Frontend website library to authenticate with the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a>.</li>
-<li><strong>Authentication</strong>: How to prove users have ownership over a Decentralized Identifier (DID).</li>
+<li><strong>Login With SelfKey</strong>: User sign up and authentication using our Chrome browser extension.</li>
+<li><strong>SelfKey Marketplace</strong>: User sign up and onboarding with our marketplace.</li>
+<li><strong>Authentication</strong>: Authentication challenge response flow in detail.</li>
+<li><strong>Selfkey-Client-Lib</strong>: Frontend website library to interact with the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a>.</li>
 <li><strong>REST API Spec</strong>: Detailed spec of the SelfKey APIs.</li>
+<li><strong>Configuring Your Website</strong>: Both frontend, backend, and our API endpoints.</li>
 </ol>
 
 <aside class="notice">
@@ -369,56 +369,59 @@ Our compliance solution <a href ="https://www.kyc-chain.com">KYC-Chain</a> has e
 
 <p><strong>How To Use This Document</strong></p>
 
-<p>You can use our API to access endpoints in the SelfKey Identity Wallet desktop application and the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> browser plugin. If anything is unclear, please contact us at <a href="mailto:help@selfkey.org">help@selfkey.org</a> and we can help you with the integrations. The format of this document is broken down into three panels:</p>
+<p>The format of this document is broken down into three panels:</p>
 
 <ul>
 <li><strong>Left Panel</strong>: Table of Contents &amp; Search Bar</li>
 <li><strong>Middle Panel</strong>: Information &amp; Documentation</li>
 <li><strong>Right Panel</strong>: Code Samples by Language</li>
 </ul>
-<h1 id='a-selfkey-extension'>A. SelfKey Extension</h1><h2 id='overview'>Overview</h2>
-<p>When a user has installed the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> browser plugin, they can deploy their Decentralized Identifier (DID) for authentication and logging into your website.</p>
 
-<p>By installing the <a href="#e-selfkey-client-lib">Selfkey-Client-Lib</a>, a &quot;Login With SelfKey&quot; button will be displayed on your website. The <a href="https://www.selfkey.org/download">SelfKey Identity Wallet</a> (Mac OS/Win/Linux) acts as the backend layer that connects to the Ethereum blockchain and a user&#39;s Decentralized Identifier (DID).</p>
+<p>If anything is unclear, please contact us at <a href="mailto:help@selfkey.org">help@selfkey.org</a> and we can help you with the integrations.</p>
+<h1 id='login-with-selfkey'>Login With SelfKey</h1><h2 id='overview'>Overview</h2>
+<p>The <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> browser extension enables users to authenticate and login to your website leveraging their Decentralized Identifier (DID).</p>
+
+<p>By installing the <a href="#selfkey-client-lib">Selfkey-Client-Lib</a>, a &quot;Login With SelfKey&quot; button will be displayed on your website. The <a href="https://www.selfkey.org/download">SelfKey Identity Wallet</a> (Mac OS/Win/Linux) acts as the backend layer that connects to the Ethereum blockchain and a user&#39;s Decentralized Identifier (DID).</p>
 <h2 id='part-1-user-requirements'>Part 1: User Requirements</h2>
 <p>For a user to successfully use their Decentralized Identifier (DID) as an authentication method, there are two applications that must be installed and activated by the user.</p>
 
 <ul>
 <li>Step 1: <a href="https://selfkey.org/download/">SelfKey Identity Wallet</a> must be installed, opened, and logged in.</li>
-<li>Step 2: [Selfkey Extension] browser plugin must be installed and activated.</li>
+<li>Step 2: <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">Selfkey Extension</a> browser extension must be installed and activated.</li>
 </ul>
 
 <aside class="success">
-Note: If both are not installed, there will be instructions after clicking "Login with SelfKey" on your website.
+Note: If one of the requirements is missing, there will be install instructions after clicking "Login with SelfKey" on your website.
 </aside>
 <h2 id='part-2-frontend-integration'>Part 2: Frontend Integration</h2>
 <p>To enable the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> as an authentication method for your website, a JavaScript library needs to be installed. This displays a <em>&quot;Login With SelfKey&quot;</em> button on your website for users to click. Clicking this button starts the login workflow.</p>
-
-<p>Exact instructions can be found in <a href="#e-selfkey-client-lib">Selfkey Client Lib</a> and <a href="#c-configuring-your-website">configuring your website</a>.</p>
-<h3 id='installation-instructions'>Installation Instructions:</h3>
+<h3 id='installation-overview'>Installation Overview:</h3>
 <ol>
-<li>Integrate <a href="#e-selfkey-client-lib"><em>Selfkey Client Lib</em></a> into your website.</li>
+<li>Integrate <a href="#selfkey-client-lib"><em>Selfkey Client Lib</em></a> into your website.</li>
 <li>Select where you want the <em>&quot;Login With SelfKey&quot;</em> button to appear.</li>
-<li>Initialize the <em>&quot;Login With SelfKey&quot;</em> button by passing <a href="#d-configuring-your-website">SelfKey Extension Config</a> to <a href="#e-selfkey-client-lib">Selfkey Client Library</a>.</li>
+<li>Initialize the <em>&quot;Login With SelfKey&quot;</em> button by passing <a href="#configuring-your-website">SelfKey Extension Config</a> to <a href="#selfkey-client-lib">Selfkey Client Library</a>.</li>
 </ol>
+
+<p>Detailed instructions can be found in <a href="#selfkey-client-lib">Selfkey Client Lib</a> and <a href="#configuring-your-website">configuring your website</a>.</p>
 <h2 id='part-3-backend-integration'>Part 3: Backend Integration</h2>
 <aside class="notice">
 Question: Are you using <a href ="https://www.kyc-chain.com">KYC-Chain</a> or an in-house compliance tool for verifying identities of new users?
 </aside>
 
-<p>We have two options for the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> backend integration.</p>
+<p>We have two options for Login With Selfkey backend integration.</p>
 <h3 id='option-1-for-non-kyc-chain-clients'>Option 1: For Non KYC-Chain Clients</h3>
-<p>The following endpoint should be implemented on your backend: <a href="#e-authentication">Authentication</a></p>
+<p>The following endpoints should be implemented on your backend:</p>
 
 <ul>
-<li><strong>Authentication</strong> – Challenge</li>
+<li><strong>Authentication</strong> – Get Challenge</li>
 <li><strong>Authentication</strong> – Challenge Reply</li>
 <li><strong>LWS</strong> - Create User file</li>
+<li><strong>LWS</strong> - Create User</li>
 <li><strong>LWS</strong> - Get user token</li>
-<li><strong>LWS</strong> - Login endpoint (optional if onAuthCallback is implemented)</li>
+<li><strong>LWS</strong> - Login endpoint (Optional. Called if onAuthCallback is not provided)</li>
 </ul>
 
-<p>Currently we don&#39;t to have tools to make this process easier, but there are several options coming soon:</p>
+<p>Currently we don&#39;t provide backend SDKs, but there are several options coming soon to make this process easier:</p>
 
 <ul>
 <li><strong>[Selfkey Node.js lib]</strong> - WORK IN PROGRESS</li>
@@ -426,14 +429,14 @@ Question: Are you using <a href ="https://www.kyc-chain.com">KYC-Chain</a> or an
 <li><strong>[Selfkey Service]</strong> - WORK IN PROGRESS</li>
 </ul>
 <h3 id='option-2-for-kyc-chain-clients'>Option 2: For KYC-Chain Clients</h3>
-<p>If your website is integrated with KYC-Chain, you can leverage our existing <a href="#e-authentication">Authentication</a> endpoints:</p>
+<p>If your website is integrated with KYC-Chain, you can leverage our existing <a href="#authentication">Authentication</a> endpoints.</p>
 
 <ol>
-<li>KYC Chain should configure your instance to use RSA algorithm for token signatures.</li>
+<li>KYC Chain should configure your instance to use the RSA algorithm for token signatures.</li>
 <li>You should receive a RSA public key and configure it for token verification.</li>
-<li>You should override authentication endpoints in their config to point to KYC-Chain.</li>
+<li>You should override authentication endpoints in your config to point to KYC-Chain.</li>
 </ol>
-<h1 id='b-selfkey-marketplace'>B. SelfKey Marketplace</h1><h2 id='1-crypto-exchanges'>1: Crypto Exchanges</h2>
+<h1 id='selfkey-marketplace'>SelfKey Marketplace</h1><h2 id='1-crypto-exchanges'>1: Crypto Exchanges</h2>
 <aside class="notice">
 Currently, integration for the SelfKey Marketplace is only available for crypto exchange clients that use KYC-Chain, our in-house compliance tool that helps with KYC onboarding of new users.
 </aside>
@@ -441,6 +444,7 @@ Currently, integration for the SelfKey Marketplace is only available for crypto 
         <span class="s2">"rootEndpoint"</span>: INSTANCE_URL,
         <span class="s2">"endpoints"</span>: <span class="o">{</span>
             <span class="s2">"/templates/:id"</span>: <span class="s2">"INSTANCE_URL/templates/:id?format=minimum"</span>
+            <span class="s2">"/users/file"</span> : <span class="s2">"INSTANCE_URL/files"</span>,
             <span class="s2">"/user/token"</span>: <span class="s2">"INSTANCE_URL/auth/token"</span>
         <span class="o">}</span>
     <span class="o">}</span>
@@ -460,261 +464,71 @@ Currently, integration for the SelfKey Marketplace is only available for crypto 
 <aside class="warning">More documentation coming soon.</aside>
 <h2 id='3-bank-accounts'>3: Bank Accounts</h2>
 <aside class="warning">More documentation coming soon.</aside>
-<h1 id='c-configuring-your-website'>C. Configuring Your Website</h1><h2 id='overview-2'>Overview</h2>
-<p>Using the <a href="https://www.selfkey.org/download">SelfKey Identity Wallet</a> (desktop application) and <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> (browser plugin), we can utilize a user&#39;s Decentralized Identifier (DID) for authentication to your website. The configuration object has similar structure for both SelfKey Extension and SelfKey Marketplace integrations, but has several distinctions for each and is usually placed in different places.</p>
+<h1 id='authentication'>Authentication</h1><h2 id='overview-2'>Overview</h2>
+<p>The purpose here is to prove the user has ownership over a Decentralized Identifier (DID) presented for authentication. To do this, we use a <strong>&quot;Challenge-Response&quot;</strong> protocol to cryptographically prove ownership via private key. For Details about API endpoints, please consult: <a href="#rest-api-spec">REST API Spec</a>.</p>
 
-<p>The SelfKey Extension configuration object would be usually passed directly when initialized inside <a href="#e-selfkey-client-lib">Selfkey-Client-Lib</a>. The SelfKey Marketplace integration object will usually be stored in the Selfkey API (Airtable inside <em>relying_party_config field</em>), you will need to submit the configuration (or all relevant details) to us.</p>
-<h2 id='1-common-configuration-properties'>1: Common Configuration Properties</h2>
-<p>There are two main properties that exist between both objects regarding integration endpoints.</p>
-<h3 id='rootendpoint'>rootEndpoint</h3>
+<aside class="notice">Note: All communications MUST be done via secure SSL connection.</aside>
+<h2 id='part-1-challenge-response-protocol'>Part 1: Challenge-Response Protocol</h2>
+<ol>
+<li>The SelfKey Identity Wallet requests a unique nonce for the given DID.</li>
+<li>Your website responds with a Challenge JWT Token containing a subject claim with the DID and a nonce claim.</li>
+<li>The wallet receives the Challenge Token, decodes it and extracts the nonce.</li>
+<li>The wallet creates a signature of the nonce signed with its private key.</li>
+<li>The wallet replies to your website with the challenge JWT token, signature value and DID authentication key identifier.</li>
+<li>Your website resolves the DID document and extracts the authentication public key. Than verifies that signature corresponds to the public key and nonce inside the JWT challenge token.</li>
+<li>Your website replies to the wallet by issuing a Wallet JWT token.</li>
+<li>The SelfKey Identity Wallet uses the &quot;Wallet JWT Token&quot; to perform other requests to your website.</li>
+</ol>
+<h2 id='part-2-jwt-json-web-token'>Part 2: JWT-JSON Web token</h2>
+<p>How To Implement JWT Tokens:</p>
+
 <ul>
-<li>This is the default integration endpoint.</li>
-<li>If no overrides, by default the <a href="https://www.selfkey.org/download">SelfKey Identity Wallet</a> will try to guess all endpoints by appending their name to it.<br></li>
-<li>If the <em>rootEndpoint</em> provided is not an absolute URL, it will be prepended with website URL (see website config option).</li>
+<li><a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JSON Web Token: Wikipedia</a></li>
+<li><a href="https://jwt.io/">JWT.io</a></li>
+<li><a href="https://auth0.com/resources/ebooks/jwt-handbook">JWT Handbook</a></li>
+<li><a href="https://auth0.com/docs/jwt">Auth0 JWT Docs</a></li>
 </ul>
-
-<p><em>Example:</em></p>
-
+<h3 id='allowed-algorithms'>Allowed Algorithms</h3>
 <ul>
-<li><strong>rootEndpoint</strong>: &quot;https://yoursite.com/api/v1/selfkey/&quot;</li>
-<li>The <a href="https://www.selfkey.org/download">SelfKey Identity Wallet</a> will derive auth/challenge endpoint and templates endpoint by simply appending their name to root endpoint:</li>
-<li><strong>Challenge</strong>: https://yoursite.com/api/v1/selfkey/auth/challange</li>
-<li><strong>Templates</strong>: https://yoursite.com/api/v1/selfkey/template</li>
+<li><strong>HMAC</strong> - Default</li>
+<li><strong>RSA</strong> - Suitable for multi server authentication</li>
 </ul>
-<h3 id='endpoints'>endpoints</h3>
+<h2 id='part-3-challenge-token'>Part 3: Challenge Token</h2>
+<p>Besides several requirements below, you are free to include any data in your token for verification.</p>
+
+<p>Required Claims:</p>
+
 <ul>
-<li>The endpoints option contain overrides to the default API endpoint mechanisms.</li>
-<li>Override config supports both absolute URLs and relative URLs.</li>
-<li>Our API is configurable in terms of URLs to the point that different endpoints can run on different services as long as they can use a common [Authentication &amp; Proof Of Ownership Challenge-Response] scheme.</li>
+<li><strong>sub</strong>: (Subject) The user&#39;s DID</li>
+<li><strong>iat</strong>: (Issued At) the epoch timestamp that the JWT was issued at</li>
+<li><strong>exp</strong>: (Expiration)the epoch timestamp at which the JWT expires</li>
+<li><strong>nonce</strong>: (Number used Once) a random string of bytes (base64-encoded) which must be signed in order to authenticate</li>
+<li><strong>typ</strong>: &quot;IDW_CHALLANGE&quot;</li>
+<li>Recommended token expiration time: 30 min</li>
 </ul>
+<h2 id='part-4-wallet-token'>Part 4: Wallet Token</h2>
+<p>Besides several requirements below, you are free to include any data in your token for verification.</p>
 
-<p><em>Example:</em></p>
-
-<p><strong>rootEndpoint of &quot;https://yoursite.com/api/v1/selfkey/&quot;</strong></p>
+<p>Required Claims:</p>
 
 <ul>
-<li><p>Default behavior for the template endpoint is to use: https://yoursite.com/api/v1/selfkey/templates endpoint, but there are two options for relative override and absolute override:</p></li>
-<li><p><strong>Relative override</strong>: Instead of default, it will use -&gt; <em>https://yoursite.com/api/v1/selfkey/repository/templates</em></p></li>
+<li><strong>sub</strong>: (Subject) The user&#39;s DID</li>
+<li><strong>iat</strong>: (Issued At) the epoch timestamp that the JWT was issued at</li>
+<li><strong>exp</strong>: (Expiration)the epoch timestamp at which the JWT expires</li>
+<li><strong>typ</strong>: &quot;IDW_ACCESS&quot;</li>
+<li>Recommended token expiration time: 60 min</li>
 </ul>
-
-<p><code>{ &quot;endpoints&quot; : &quot;/templates&quot;: &quot;/repository/templates&quot; }</code></p>
-
+<h2 id='part-5-how-to-verify-wallet-token-on-other-servers'>Part 5: How To Verify Wallet Token On Other Servers</h2>
 <ul>
-<li><strong>Absolute override</strong>: Instead of default, it will use -&gt; <em>https://api.yoursite.com/repository/templates</em></li>
+<li>JWT tokens can be verified on other servers, not just one.</li>
+<li>This allows our API to reside in several different services, not necessary to have all endpoints in one place</li>
+<li>For this to work, you must initialize your JWT verification logic with a shared secret key between the servers.</li>
+<li>A better approach would be to use RS256 algorithm, and have your private key be accessible only to the server that hosts the challenge/response endpoint.</li>
+<li>Afterwards, any other server that needs to verify it can use the public key.</li>
 </ul>
-
-<p><code>{ &quot;endpoints&quot; : &quot;/templates&quot;: &quot;https://api.yoursite.com/repository/templates&quot; }</code></p>
-<h3 id='complete-list-of-possible-endpoints'>Complete List Of Possible endpoints</h3>
+<h1 id='selfkey-client-lib'>SelfKey Client Lib</h1>
 <ul>
-<li>&#39;/auth/challenge&#39; (COMMON)</li>
-<li>&#39;/auth/token&#39; (COMMON)</li>
-<li>&#39;/users&#39; (LWS and possibly marketplace – TBD by product)</li>
-<li>&#39;/templates&#39; (Marketplace)</li>
-<li>&#39;/templates/:id&#39; (Marketplace)</li>
-<li>&#39;/applications&#39; (Marketplace)</li>
-<li>&#39;/applications/:id&#39; (Marketplace)</li>
-<li>&#39;/applications/:id/payments&#39; (Marketplace)</li>
-<li>&#39;/applications&#39; (Marketplace)</li>
-<li>&#39;/applications/:id&#39; (Marketplace)</li>
-<li>&#39;/files&#39; (Marketplace, and a similar endpoint will be speced out for LWS)</li>
-<li>&#39;/login&#39;</li>
-</ul>
-<h3 id='parameterized-endpoints'>Parameterized Endpoints:</h3>
-<ul>
-<li>Some endpoints like <em>&#39;/templates/:id&#39;</em> will contain resource ID as part of the URL</li>
-<li>The SelfKey Identity Wallet will replace <em>&quot;:id &quot;</em> for actual resource ID on communication.</li>
-</ul>
-<h3 id='meta'>Meta</h3>
-<ul>
-<li>This config option is not used by the SelfKey Identity Wallet.</li>
-<li>It is an object that will be passed to relying party on certain endpoint requests as is.</li>
-<li>Currently it is used by the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> for a user creation endpoint – TBD if it should be passed on other ones</li>
-<li>Example: <code>{meta: { applicationId: &#39;333444&#39; }}</code></li>
-</ul>
-<h2 id='2-selfkey-extension-configuration'>2: SelfKey Extension Configuration</h2>
-<p>The configuration object is passed differently between different client lib implementations (for different frameworks).
-Please consult with Selfkey Client Lib for specifics.</p>
-
-<p><strong>ui</strong></p>
-
-<p>This option is used to define how Selfkey Client Lib interacts with your website. Currently only one option is available inside it: <strong>el</strong>. We hope to extend our library and provide more UI customization options like theme and CSS overrides in the future..</p>
-
-<p><strong>el</strong></p>
-
-<ul>
-<li>Can be one of the following: DOM element, css query selector, or an array containing a mixture of the previous two.</li>
-<li>The current behavior of the <a href="#e-selfkey-client-lib">Selfkey-Client-Lib</a> is to use them as containers for the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> login button</li>
-<li>Example: <code>{ui: {el: &#39;.lwsClient&#39;}}</code></li>
-</ul>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-   website: <span class="o">{</span>
-       name: <span class="s1">'LWS Example Site'</span>,
-       url: <span class="s1">'https://yoursite.com/'</span>,
-       termsUrl: <span class="s1">'https://yoursite/terms.html'</span>,
-       policyUrl: <span class="s1">'https://yoursite.com/policy.html'</span>,
-   <span class="o">}</span>,
-<span class="o">}</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-   <span class="nl">website</span><span class="p">:</span> <span class="p">{</span>
-       <span class="nl">name</span><span class="p">:</span> <span class="s1">'LWS Example Site'</span><span class="p">,</span>
-       <span class="nx">url</span><span class="p">:</span> <span class="s1">'https://yoursite.com/'</span><span class="p">,</span>
-       <span class="nx">termsUrl</span><span class="p">:</span> <span class="s1">'https://yoursite/terms.html'</span><span class="p">,</span>
-       <span class="nx">policyUrl</span><span class="p">:</span> <span class="s1">'https://yoursite.com/policy.html'</span><span class="p">,</span>
-   <span class="p">},</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>website</strong></p>
-
-<ul>
-<li>Information about the website integrating LWS.</li>
-<li>This information is displayed for the user on the extension popup.</li>
-<li><strong>name</strong>: Name of the website</li>
-<li><strong>url</strong>: Canonical url for the website</li>
-<li><strong>termsUrl</strong>: a link to service terms of service</li>
-<li><strong>policyUrl</strong>: a link to service privacy policy</li>
-</ul>
-<h3 id='attributes'>attributes</h3><pre class="highlight plaintext"><code>attributes: [
-           {
-               id: "first_name",
-               label: "First Name",
-               schemaId: "http://platform.selfkey.org/schema/attribute/first-name.json"
-           },
-           {
-               label: "Last Name",
-               attribute: "http://platform.selfkey.org/schema/attribute/last-name.json"
-           },
-           {
-               id: "email",
-               schemaId: "http://platform.selfkey.org/schema/attribute/email.json"
-           },
-           "http://platform.selfkey.org/schema/attribute/email.json"
-],
-</code></pre>
-<ul>
-<li>A list of attributes that are required for signup with the service.</li>
-<li><p>Each attribute can contains the following information:</p></li>
-<li><p><strong>schemaId</strong>: A url to id attribute in https://platform.selfkey.org/repository.json and possibly other repositories in future. (required)</p></li>
-<li><p><strong>id</strong>: an unique identifier for a field on relying party server (optional)</p></li>
-<li><p><strong>label</strong>: a label for this attribute to be displayed for the user (optional, if not provided, we will use the title attribute of schema)</p></li>
-<li><p>Alternatively an attribute can be a simple string which representing schemaId</p></li>
-<li><p>NOTE: Current implementation is not updated with this config options, tracked in issue https://github.com/SelfKeyFoundation/Identity-Wallet/issues/1001</p></li>
-</ul>
-<pre class="highlight javascript tab-javascript"><code><span class="nx">onAuthResponse</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'OnAuthResponse'</span><span class="p">,</span> <span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span>
-                        <span class="s1">'user-token'</span>
-                    <span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">`UserPayload Error: </span><span class="p">${</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span>
-                        <span class="s1">'user-token'</span>
-                    <span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">`UserPayload: </span><span class="p">${</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
-                <span class="p">}</span>
-
-
-                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">ui</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
-                <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">ui</span><span class="p">.</span><span class="nx">popup</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;b&gt;Closing popup&lt;/b&gt;'</span><span class="p">;</span>
-                <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
-                <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">ui</span><span class="p">.</span><span class="nx">popup</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-                <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
-            <span class="p">}</span>
-</code></pre><h3 id='onauthcallback'>onAuthCallback</h3>
-<ul>
-<li>An optional callback that can be passed to configuration object.</li>
-<li>If it is passed, client-lib will call it instead of performing the default login behavior (calling login endpoint and redirecting to provided URL).</li>
-<li>It will be called on each login/signup attempt.</li>
-</ul>
-
-<p><strong>Arguments</strong>:</p>
-
-<ul>
-<li>error: Will contain error object if auth/signup failed. Will be null on successful authentication.</li>
-<li>response: Will contain response object. Not modified, as returned from /auth/token endpoint.</li>
-<li>ui: Will contain a reference to selfkey ui elements. Will allow to insert custom html and hide popup if necessary.</li>
-<li>NOTE: needs to be examined from security perspective, but probably safe to use.</li>
-</ul>
-<h3 id='extensionid'>extensionId</h3>
-<ul>
-<li>It is an internal parameter, should not be documented for the public.</li>
-<li>It is used to specify <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> id that is loaded in the browser and is used by Selfkey-lib to communicate with the extension, used for development purposes.</li>
-</ul>
-<h3 id='complete-selfkey-extension-configuration-example'>Complete SelfKey Extension Configuration Example</h3>
-<blockquote>
-<p>Complete SelfKey Extension Configuration Example</p>
-</blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-            <span class="nl">ui</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nl">el</span><span class="p">:</span> <span class="s1">'.lwsClient'</span>
-            <span class="p">},</span>
-            <span class="nx">website</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nl">name</span><span class="p">:</span> <span class="s1">'LWS Example'</span><span class="p">,</span>
-                <span class="nx">url</span><span class="p">:</span> <span class="s1">'http://localhost:3030/'</span><span class="p">,</span>
-                <span class="nx">termsUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/terms.html'</span><span class="p">,</span>
-                <span class="nx">policyUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/policy.html'</span>
-            <span class="p">},</span>
-            <span class="nx">rootEndpoint</span><span class="p">:</span> <span class="s1">'/api/v1/selfkey'</span><span class="p">,</span>
-            <span class="nx">attributes</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="na">id</span><span class="p">:</span> <span class="s1">'first_name'</span><span class="p">,</span>
-                    <span class="na">label</span><span class="p">:</span> <span class="s1">'First Name'</span><span class="p">,</span>
-                    <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/first-name.json'</span>
-                <span class="p">},</span>
-                <span class="p">{</span>
-                    <span class="na">id</span><span class="p">:</span> <span class="s1">'last_name'</span><span class="p">,</span>
-                    <span class="na">label</span><span class="p">:</span> <span class="s1">'Last Name'</span><span class="p">,</span>
-                    <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/last-name.json'</span>
-                <span class="p">},</span>
-                <span class="p">{</span>
-                    <span class="na">id</span><span class="p">:</span> <span class="s1">'email'</span><span class="p">,</span>
-                    <span class="na">label</span><span class="p">:</span> <span class="s1">'Email'</span><span class="p">,</span>
-                    <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/email.json'</span>
-                <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="nx">onAuthResponse</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'OnAuthResponse'</span><span class="p">,</span> <span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span>
-                        <span class="s1">'user-token'</span>
-                    <span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">`UserPayload Error: </span><span class="p">${</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span>
-                        <span class="s1">'user-token'</span>
-                    <span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">`UserPayload: </span><span class="p">${</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
-                <span class="p">}</span>
-
-
-                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">ui</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
-                <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">ui</span><span class="p">.</span><span class="nx">popup</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;b&gt;Closing popup&lt;/b&gt;'</span><span class="p">;</span>
-                <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
-                <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">ui</span><span class="p">.</span><span class="nx">popup</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-                <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
-            <span class="p">}</span>
- <span class="p">}</span>
-</code></pre>
-<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-
-<p><center><em>This area intentionally left blank (see right).</em></center></p>
-<h2 id='3-selfkey-marketplace-configuration'>3: SelfKey Marketplace Configuration</h2>
-<p>There are no special configuration options are available for the SelfKey Marketplace at this point.</p>
-<h3 id='complete-selfkey-marketplace-configuration-example'>Complete SelfKey Marketplace Configuration Example:</h3><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-        <span class="nl">rootEndpoint</span><span class="p">:</span> <span class="s2">"https://kyc-instance-url.com/api/v1/"</span><span class="p">,</span>
-        <span class="nx">endpoints</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">'/templates/:id'</span><span class="p">:</span> <span class="s2">`https://kyc-instance-url.com/api/v1/templates/:id?format=minimum`</span>
-        <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-<ul>
-<li>This is a simple integration that will only contain the root endpoint.</li>
-<li>If you are using our compliance solution KYC-Chain, integrations will also contain an override for the template endpoints.</li>
-</ul>
-<h1 id='e-selfkey-client-lib'>E. SelfKey Client Lib</h1>
-<ul>
-<li>SelfKey Client Lib is a client library used to integrate our Chrome browser plugin <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> to your website.</li>
+<li>SelfKey Client Lib is a client library used to integrate your website to our Chrome browser plugin <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a>.</li>
 <li>We have four sample client integrations with Javascript, Angular 1, React, and Vue.</li>
 <li>Repository: https://github.com/SelfKeyFoundation/selfkey-js-client</li>
 <li>NOTE: All npm repos should be grouped under <code>@seflkey</code> organization prefix</li>
@@ -743,8 +557,9 @@ Please consult with Selfkey Client Lib for specifics.</p>
 
 <p><strong>Usage in Code</strong></p>
 
-<p><code>import lws from &#39;lws-js-client&#39;
-lws.init(config);</code></p>
+<p><code>import lws from &#39;lws-js-client&#39;</code></p>
+
+<p><code>lws.init(config);</code></p>
 
 <p><strong>CDN</strong></p>
 
@@ -780,7 +595,7 @@ lws.init(config);</code></p>
 <p>Arguments:</p>
 
 <ul>
-<li>config – LWS process configuration as explained in Relying Party Configuration.</li>
+<li>config – LWS process configuration as explained in <a href="#configuring-your-website">Configuring Your Website</a>.</li>
 </ul>
 
 <p>Prerequisites:</p>
@@ -791,36 +606,36 @@ lws.init(config);</code></p>
 </ul>
 
 <p>Init Example:</p>
-<pre class="highlight shell tab-shell"><code>
-lws.init<span class="o">({</span>
-            ui: <span class="o">{</span>
-                el: <span class="s1">'.lwsClient'</span>
-            <span class="o">}</span>,
-            website: <span class="o">{</span>
-                name: <span class="s1">'LWS Example'</span>,
-                url: <span class="s1">'http://localhost:3030/'</span>,
-                termsUrl: <span class="s1">'http://localhost:3030/terms.html'</span>,
-                policyUrl: <span class="s1">'http://localhost:3030/policy.html'</span>
-            <span class="o">}</span>,
-            rootEndpoint: <span class="s1">'/api/v1/selfkey'</span>,
-            attributes: <span class="o">[</span>
-                <span class="o">{</span>
-                    id: <span class="s1">'first_name'</span>,
-                    label: <span class="s1">'First Name'</span>,
-                    schemaId: <span class="s1">'http://platform.selfkey.org/schema/attribute/first-name.json'</span>
-                <span class="o">}</span>,
-                <span class="o">{</span>
-                    id: <span class="s1">'last_name'</span>,
-                    label: <span class="s1">'Last Name'</span>,
-                    schemaId: <span class="s1">'http://platform.selfkey.org/schema/attribute/last-name.json'</span>
-                <span class="o">}</span>,
-                <span class="o">{</span>
-                    id: <span class="s1">'national_id'</span>,
-                    label: <span class="s1">'National ID'</span>,
-                    schemaId: <span class="s1">'http://platform.selfkey.org/schema/attribute/national-id.json'</span>
-                <span class="o">}</span>
-           <span class="o">]</span>
-<span class="o">})</span>;
+<pre class="highlight javascript tab-javascript"><code>
+<span class="nx">lws</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+            <span class="na">ui</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">el</span><span class="p">:</span> <span class="s1">'.lwsClient'</span>
+            <span class="p">},</span>
+            <span class="na">website</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">name</span><span class="p">:</span> <span class="s1">'LWS Example'</span><span class="p">,</span>
+                <span class="na">url</span><span class="p">:</span> <span class="s1">'http://localhost:3030/'</span><span class="p">,</span>
+                <span class="na">termsUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/terms.html'</span><span class="p">,</span>
+                <span class="na">policyUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/policy.html'</span>
+            <span class="p">},</span>
+            <span class="na">rootEndpoint</span><span class="p">:</span> <span class="s1">'/api/v1/selfkey'</span><span class="p">,</span>
+            <span class="na">attributes</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="na">id</span><span class="p">:</span> <span class="s1">'first_name'</span><span class="p">,</span>
+                    <span class="na">label</span><span class="p">:</span> <span class="s1">'First Name'</span><span class="p">,</span>
+                    <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/first-name.json'</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="na">id</span><span class="p">:</span> <span class="s1">'last_name'</span><span class="p">,</span>
+                    <span class="na">label</span><span class="p">:</span> <span class="s1">'Last Name'</span><span class="p">,</span>
+                    <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/last-name.json'</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="na">id</span><span class="p">:</span> <span class="s1">'national_id'</span><span class="p">,</span>
+                    <span class="na">label</span><span class="p">:</span> <span class="s1">'National ID'</span><span class="p">,</span>
+                    <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/national-id.json'</span>
+                <span class="p">}</span>
+           <span class="p">]</span>
+<span class="p">});</span>
 </code></pre>
 <p><strong>teardown</strong></p>
 
@@ -855,38 +670,38 @@ lws.init<span class="o">({</span>
 <p><code>npm install lws-angularjs-client --save</code></p>
 
 <p><strong>Usage in Code</strong></p>
-<pre class="highlight plaintext"><code>require('lws-angularjs-client');
+<pre class="highlight javascript tab-javascript"><code><span class="nx">require</span><span class="p">(</span><span class="s1">'lws-angularjs-client'</span><span class="p">);</span>
 
-angular.module('lwsExample', ['lwsSdk'])
-            .controller('login', ['$scope', ($scope) =&gt; {
-                $scope.website = {
-                    name: 'LWS Example',
-                    url: 'http://localhost:3031/',
-                    termsUrl: 'http://localhost:3031/terms.html',
-                    policyUrl: 'http://localhost:3031/policy.html',
-                };
-                $scope.rootEndpoint = 'http://localhost:3030/api/v1/selfkey',
-                $scope.attributes = [
-                    {
-                        id: "first_name",
-                        label: "First Name",
-                        schemaId: "http://platform.selfkey.org/schema/attribute/first-name.json"
-                    },
-                    {
-                        id: "last_name",
-                        label: "Last Name",
-                        schemaId: "http://platform.selfkey.org/schema/attribute/last-name.json"
-                    },
-                    {
-                        id: "email",
-                        label: "Email"
-                        schemaId: "http://platform.selfkey.org/schema/attribute/email.json"
-                    }
-                ];
-                $scope.onAuthResponse = (err, res, ui) =&gt; {
-                    console.log('OnAuthResponse', err, res, ui);
-                }
-            }]);
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'lwsExample'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'lwsSdk'</span><span class="p">])</span>
+            <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'login'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'$scope'</span><span class="p">,</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">$scope</span><span class="p">.</span><span class="nx">website</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="na">name</span><span class="p">:</span> <span class="s1">'LWS Example'</span><span class="p">,</span>
+                    <span class="na">url</span><span class="p">:</span> <span class="s1">'http://localhost:3031/'</span><span class="p">,</span>
+                    <span class="na">termsUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3031/terms.html'</span><span class="p">,</span>
+                    <span class="na">policyUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3031/policy.html'</span><span class="p">,</span>
+                <span class="p">};</span>
+                <span class="nx">$scope</span><span class="p">.</span><span class="nx">rootEndpoint</span> <span class="o">=</span> <span class="s1">'http://localhost:3030/api/v1/selfkey'</span><span class="p">,</span>
+                <span class="nx">$scope</span><span class="p">.</span><span class="nx">attributes</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="na">id</span><span class="p">:</span> <span class="s2">"first_name"</span><span class="p">,</span>
+                        <span class="na">label</span><span class="p">:</span> <span class="s2">"First Name"</span><span class="p">,</span>
+                        <span class="na">schemaId</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/first-name.json"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="na">id</span><span class="p">:</span> <span class="s2">"last_name"</span><span class="p">,</span>
+                        <span class="na">label</span><span class="p">:</span> <span class="s2">"Last Name"</span><span class="p">,</span>
+                        <span class="na">schemaId</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/last-name.json"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="na">id</span><span class="p">:</span> <span class="s2">"email"</span><span class="p">,</span>
+                        <span class="na">label</span><span class="p">:</span> <span class="s2">"Email"</span>
+                        <span class="na">schemaId</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/email.json"</span>
+                    <span class="p">}</span>
+                <span class="p">];</span>
+                <span class="nx">$scope</span><span class="p">.</span><span class="nx">onAuthResponse</span> <span class="o">=</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'OnAuthResponse'</span><span class="p">,</span> <span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}]);</span>
 </code></pre>
 <p><strong>Usage In Code</strong>:</p>
 
@@ -900,13 +715,13 @@ angular.module('lwsExample', ['lwsSdk'])
 &lt;script src=&quot;https://unpkg.com/lws-angularjs-client@1.0.0-beta.26/dist/lws-angularjs-client.min.js&quot;&gt;&lt;/script&gt;</code></p>
 
 <p><strong>Usage In Code</strong>:</p>
-<pre class="highlight plaintext"><code>
-&lt;div ng-controller="login"&gt;
-        &lt;lws-button website="website" attributes="attributes" root-endpoint="rootEndpoint" on-auth-response="onAuthResponse(err,res,ui)"&gt;&lt;/lws-button&gt;
-&lt;/div&gt;
+<pre class="highlight javascript tab-javascript"><code>
+<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">"login"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">lws</span><span class="o">-</span><span class="nx">button</span> <span class="nx">website</span><span class="o">=</span><span class="s2">"website"</span> <span class="nx">attributes</span><span class="o">=</span><span class="s2">"attributes"</span> <span class="nx">root</span><span class="o">-</span><span class="nx">endpoint</span><span class="o">=</span><span class="s2">"rootEndpoint"</span> <span class="nx">on</span><span class="o">-</span><span class="nx">auth</span><span class="o">-</span><span class="nx">response</span><span class="o">=</span><span class="s2">"onAuthResponse(err,res,ui)"</span><span class="o">&gt;&lt;</span><span class="sr">/lws-button</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
 
-
-&lt;script type="text/javascript&gt;
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/javascript&gt;
 
 
 angular.module('lwsExample', ['lwsSdk'])
@@ -920,29 +735,29 @@ angular.module('lwsExample', ['lwsSdk'])
                 $scope.rootEndpoint = 'http://localhost:3030/api/v1/selfkey',
                 $scope.attributes = [
                     {
-                        id: "first_name",
-                        label: "First Name",
-                        schemaId: "http://platform.selfkey.org/schema/attribute/first-name.json"
-                    },
-                    {
-                        id: "last_name",
-                        label: "Last Name",
-                        schemaId: "http://platform.selfkey.org/schema/attribute/last-name.json"
-                    },
-                    {
-                        id: "email",
-                        label: "Email"
-                        schemaId: "http://platform.selfkey.org/schema/attribute/email.json"
-                    }
-                ];
-                $scope.onAuthResponse = (err, res, ui) =&gt; {
-                    console.log('OnAuthResponse', err, res, ui);
-                }
-            }]);
+                        id: "</span><span class="nx">first_name</span><span class="s2">",
+                        label: "</span><span class="nx">First</span> <span class="nx">Name</span><span class="s2">",
+                        schemaId: "</span><span class="nx">http</span><span class="p">:</span><span class="c1">//platform.selfkey.org/schema/attribute/first-name.json"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="na">id</span><span class="p">:</span> <span class="s2">"last_name"</span><span class="p">,</span>
+                        <span class="na">label</span><span class="p">:</span> <span class="s2">"Last Name"</span><span class="p">,</span>
+                        <span class="na">schemaId</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/last-name.json"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="na">id</span><span class="p">:</span> <span class="s2">"email"</span><span class="p">,</span>
+                        <span class="na">label</span><span class="p">:</span> <span class="s2">"Email"</span>
+                        <span class="na">schemaId</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/email.json"</span>
+                    <span class="p">}</span>
+                <span class="p">];</span>
+                <span class="nx">$scope</span><span class="p">.</span><span class="nx">onAuthResponse</span> <span class="o">=</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'OnAuthResponse'</span><span class="p">,</span> <span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}]);</span>
 
 
-&lt;/script&gt;
-
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span>
 
 </code></pre><h2 id='3-react-client'>3. React Client</h2>
 <p>URL: https://www.npmjs.com/package/lws-react-client</p>
@@ -961,37 +776,36 @@ angular.module('lwsExample', ['lwsSdk'])
 <p><code>npm install lws-react-client --save</code></p>
 
 <p><strong>Usage in Code</strong></p>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">LWSButton</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'lws-react-client'</span><span class="p">;</span>
 
-<p>`import { LWSButton } from &#39;lws-react-client&#39;;</p>
-
-<p>const config = {
-    website: {
-        name: &#39;LWS Example&#39;,
-        url: &#39;http://localhost:3032/&#39;,
-        termsUrl: &#39;http://localhost:3030/terms.html&#39;,
-        policyUrl: &#39;http://localhost:3030/policy.html&#39;
-    },
-    rootEndpoint: &#39;http://localhost:3030/api/v1/selfkey&#39;,
-    attributes: [
-        {
-            id: &#39;first_name&#39;,
-            label: &#39;First Name&#39;,
-            schemaId: &#39;http://platform.selfkey.org/schema/attribute/first-name.json&#39;
-        },
-        {
-            id: &#39;last_name&#39;,
-            label: &#39;Last Name&#39;,
-            schemaId: &#39;http://platform.selfkey.org/schema/attribute/last-name.json&#39;
-        },
-        {
-            id: &#39;email&#39;,
-            label: &#39;Email&#39;,
-            schemaId: &#39;http://platform.selfkey.org/schema/attribute/email.json&#39;
-        }
-    ]
-};
-ReactDOM.render((<LWSButton />), document.getElementById(&#39;root&#39;))`</p>
-
+<span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">website</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'LWS Example'</span><span class="p">,</span>
+        <span class="na">url</span><span class="p">:</span> <span class="s1">'http://localhost:3032/'</span><span class="p">,</span>
+        <span class="na">termsUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/terms.html'</span><span class="p">,</span>
+        <span class="na">policyUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/policy.html'</span>
+    <span class="p">},</span>
+    <span class="na">rootEndpoint</span><span class="p">:</span> <span class="s1">'http://localhost:3030/api/v1/selfkey'</span><span class="p">,</span>
+    <span class="na">attributes</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="na">id</span><span class="p">:</span> <span class="s1">'first_name'</span><span class="p">,</span>
+            <span class="na">label</span><span class="p">:</span> <span class="s1">'First Name'</span><span class="p">,</span>
+            <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/first-name.json'</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">id</span><span class="p">:</span> <span class="s1">'last_name'</span><span class="p">,</span>
+            <span class="na">label</span><span class="p">:</span> <span class="s1">'Last Name'</span><span class="p">,</span>
+            <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/last-name.json'</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">id</span><span class="p">:</span> <span class="s1">'email'</span><span class="p">,</span>
+            <span class="na">label</span><span class="p">:</span> <span class="s1">'Email'</span><span class="p">,</span>
+            <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/email.json'</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">((</span><span class="o">&lt;</span><span class="nx">LWSButton</span> <span class="o">/&gt;</span><span class="p">),</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">))</span>
+</code></pre>
 <p><strong>CDN</strong></p>
 
 <p>Include the following script in your webpage:</p>
@@ -1001,46 +815,45 @@ ReactDOM.render((<LWSButton />), document.getElementById(&#39;root&#39;))`</p>
 &lt;script src=&quot;https://unpkg.com/lws-react-client@1.0.0-beta.26/dist/lws-react-client.min.js&quot;&gt;&lt;/script&gt;</code></p>
 
 <p><strong>Usage in Code</strong></p>
-<pre class="highlight shell tab-shell"><code>
-&lt;div ng-controller<span class="o">=</span><span class="s2">"login"</span>&gt;
-        &lt;lws-button <span class="nv">website</span><span class="o">=</span><span class="s2">"website"</span> <span class="nv">attributes</span><span class="o">=</span><span class="s2">"attributes"</span> root-endpoint<span class="o">=</span><span class="s2">"rootEndpoint"</span> on-auth-response<span class="o">=</span><span class="s2">"onAuthResponse(err,res,ui)"</span>&gt;&lt;/lws-button&gt;
-&lt;/div&gt;
+<pre class="highlight javascript tab-javascript"><code>
+<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">"login"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">lws</span><span class="o">-</span><span class="nx">button</span> <span class="nx">website</span><span class="o">=</span><span class="s2">"website"</span> <span class="nx">attributes</span><span class="o">=</span><span class="s2">"attributes"</span> <span class="nx">root</span><span class="o">-</span><span class="nx">endpoint</span><span class="o">=</span><span class="s2">"rootEndpoint"</span> <span class="nx">on</span><span class="o">-</span><span class="nx">auth</span><span class="o">-</span><span class="nx">response</span><span class="o">=</span><span class="s2">"onAuthResponse(err,res,ui)"</span><span class="o">&gt;&lt;</span><span class="sr">/lws-button</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
 
-
-&lt;script&gt;
-            ReactDOM.render<span class="o">(</span>
-                React.createElement<span class="o">(</span>lwsReact.LWSButton, <span class="o">{</span>
-                    website: <span class="o">{</span>
-                        name: <span class="s1">'LWS Example'</span>,
-                        url: <span class="s1">'http://localhost:3032/'</span>,
-                        termsUrl: <span class="s1">'http://localhost:3030/terms.html'</span>,
-                        policyUrl: <span class="s1">'http://localhost:3030/policy.html'</span>
-                    <span class="o">}</span>,
-                    rootEndpoint: <span class="s1">'http://localhost:3030/api/v1/selfkey'</span>,
-                    attributes: <span class="o">[</span>
-                        <span class="o">{</span>
-                            id: <span class="s1">'first_name'</span>,
-                            label: <span class="s1">'First Name'</span>,
-                            attribute:
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+            <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+                <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">lwsReact</span><span class="p">.</span><span class="nx">LWSButton</span><span class="p">,</span> <span class="p">{</span>
+                    <span class="na">website</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="na">name</span><span class="p">:</span> <span class="s1">'LWS Example'</span><span class="p">,</span>
+                        <span class="na">url</span><span class="p">:</span> <span class="s1">'http://localhost:3032/'</span><span class="p">,</span>
+                        <span class="na">termsUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/terms.html'</span><span class="p">,</span>
+                        <span class="na">policyUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/policy.html'</span>
+                    <span class="p">},</span>
+                    <span class="na">rootEndpoint</span><span class="p">:</span> <span class="s1">'http://localhost:3030/api/v1/selfkey'</span><span class="p">,</span>
+                    <span class="na">attributes</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="na">id</span><span class="p">:</span> <span class="s1">'first_name'</span><span class="p">,</span>
+                            <span class="na">label</span><span class="p">:</span> <span class="s1">'First Name'</span><span class="p">,</span>
+                            <span class="na">attribute</span><span class="p">:</span>
                                 <span class="s1">'http://platform.selfkey.org/schema/attribute/first-name.json'</span>
-                        <span class="o">}</span>,
-                        <span class="o">{</span>
-                            id: <span class="s1">'last_name'</span>,
-                            label: <span class="s1">'Last Name'</span>,
-                            attribute: <span class="s1">'http://platform.selfkey.org/schema/attribute/last-name.json'</span>
-                        <span class="o">}</span>,
-                        <span class="o">{</span>
-                            id: <span class="s1">'email'</span>,
-                            label: <span class="s1">'Email'</span>,
-                            schemaId: <span class="s1">'http://platform.selfkey.org/schema/attribute/email.json'</span>
-                        <span class="o">}</span>
-                    <span class="o">]</span>
-                <span class="o">})</span>,
-                document.getElementById<span class="o">(</span><span class="s1">'root'</span><span class="o">)</span>
-            <span class="o">)</span>;
- &lt;/script&gt;
-
-</code></pre><h2 id='4-vue-client'>4. Vue Client</h2>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="na">id</span><span class="p">:</span> <span class="s1">'last_name'</span><span class="p">,</span>
+                            <span class="na">label</span><span class="p">:</span> <span class="s1">'Last Name'</span><span class="p">,</span>
+                            <span class="na">attribute</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/last-name.json'</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="na">id</span><span class="p">:</span> <span class="s1">'email'</span><span class="p">,</span>
+                            <span class="na">label</span><span class="p">:</span> <span class="s1">'Email'</span><span class="p">,</span>
+                            <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/email.json'</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}),</span>
+                <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
+            <span class="p">);</span>
+ <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre><h2 id='4-vue-client'>4. Vue Client</h2>
 <p>URL: https://www.npmjs.com/package/lws-vue-client</p>
 <h3 id='sample-integration-2'>Sample Integration</h3>
 <ul>
@@ -1056,33 +869,33 @@ NPM with webpack or similar tools</p>
 <p><code>npm install lws-vue-client --save</code></p>
 
 <p><strong>Usage in Code</strong></p>
-<pre class="highlight vue tab-vue"><code>
-require('lws-veu-client');
+<pre class="highlight javascript tab-javascript"><code>
+<span class="nx">require</span><span class="p">(</span><span class="s1">'lws-veu-client'</span><span class="p">);</span>
 
-new Vue({
-            el: '#root',
-            data: {
-                website: {
-                    name: 'LWS Example',
-                    url: 'http://localhost:3033/',
-                    termsUrl: 'http://localhost:3030/terms.html',
-                    policyUrl: 'http://localhost:3030/policy.html'
-                },
-                rootEndpoint: 'http://localhost:3030/api/v1/selfkey',
-                attributes: [
-                    {
-                        id: "first_name",
-                        label: "First Name",
-                        schemaId: "http://platform.selfkey.org/schema/attribute/first-name.json"
-                    },
-                    {
-                        id: "last_name",
-                        label: "Last Name",
-                        attribute: "http://platform.selfkey.org/schema/attribute/last-name.json"
-                    }
-                ],
-            }
-        });
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+            <span class="na">el</span><span class="p">:</span> <span class="s1">'#root'</span><span class="p">,</span>
+            <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">website</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">name</span><span class="p">:</span> <span class="s1">'LWS Example'</span><span class="p">,</span>
+                    <span class="na">url</span><span class="p">:</span> <span class="s1">'http://localhost:3033/'</span><span class="p">,</span>
+                    <span class="na">termsUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/terms.html'</span><span class="p">,</span>
+                    <span class="na">policyUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/policy.html'</span>
+                <span class="p">},</span>
+                <span class="na">rootEndpoint</span><span class="p">:</span> <span class="s1">'http://localhost:3030/api/v1/selfkey'</span><span class="p">,</span>
+                <span class="na">attributes</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="na">id</span><span class="p">:</span> <span class="s2">"first_name"</span><span class="p">,</span>
+                        <span class="na">label</span><span class="p">:</span> <span class="s2">"First Name"</span><span class="p">,</span>
+                        <span class="na">schemaId</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/first-name.json"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="na">id</span><span class="p">:</span> <span class="s2">"last_name"</span><span class="p">,</span>
+                        <span class="na">label</span><span class="p">:</span> <span class="s2">"Last Name"</span><span class="p">,</span>
+                        <span class="na">attribute</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/last-name.json"</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
 
 </code></pre>
 <p><strong>Usage in Code</strong></p>
@@ -1099,12 +912,12 @@ new Vue({
 &lt;script src=&quot;https://unpkg.com/lws-vue-client@1.0.0-beta.26/dist/lws-vue-client.min.js&quot;&gt;&lt;/script&gt;</code></p>
 
 <p><strong>Usage in Code</strong></p>
-<pre class="highlight vue tab-vue"><code>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"root"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;lws-button</span> <span class="na">v-bind:website=</span><span class="s">"website"</span> <span class="na">v-bind:attributes=</span><span class="s">"attributes"</span> <span class="na">v-bind:root-endpoint=</span><span class="s">"rootEndpoint"</span><span class="nt">&gt;&lt;/lws-button&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;</span><span class="k">script</span> <span class="na">type=</span><span class="s">"text/javascript&gt;
+<pre class="highlight javascript tab-javascript"><code>
+<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"root"</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="nx">lws</span><span class="o">-</span><span class="nx">button</span> <span class="nx">v</span><span class="o">-</span><span class="nx">bind</span><span class="p">:</span><span class="nx">website</span><span class="o">=</span><span class="s2">"website"</span> <span class="nx">v</span><span class="o">-</span><span class="nx">bind</span><span class="p">:</span><span class="nx">attributes</span><span class="o">=</span><span class="s2">"attributes"</span> <span class="nx">v</span><span class="o">-</span><span class="nx">bind</span><span class="p">:</span><span class="nx">root</span><span class="o">-</span><span class="nx">endpoint</span><span class="o">=</span><span class="s2">"rootEndpoint"</span><span class="o">&gt;&lt;</span><span class="sr">/lws-button</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/javascript&gt;
 
 new Vue({
             el: '#root',
@@ -1118,90 +931,28 @@ new Vue({
                 rootEndpoint: 'http://localhost:3030/api/v1/selfkey',
                 attributes: [
                     {
-                        id: "</span><span class="na">first_name</span><span class="err">",</span>
-                        <span class="na">label:</span> <span class="err">"</span><span class="na">First</span> <span class="na">Name</span><span class="err">",</span>
-                        <span class="na">schemaId:</span> <span class="err">"</span><span class="na">http:</span><span class="err">//</span><span class="na">platform</span><span class="err">.</span><span class="na">selfkey</span><span class="err">.</span><span class="na">org</span><span class="err">/</span><span class="na">schema</span><span class="err">/</span><span class="na">attribute</span><span class="err">/</span><span class="na">first-name</span><span class="err">.</span><span class="na">json</span><span class="err">"</span>
-                    <span class="err">},</span>
-                    <span class="err">{</span>
-                        <span class="na">id:</span> <span class="err">"</span><span class="na">last_name</span><span class="err">",</span>
-                        <span class="na">label:</span> <span class="err">"</span><span class="na">Last</span> <span class="na">Name</span><span class="err">",</span>
-                        <span class="na">attribute:</span> <span class="err">"</span><span class="na">http:</span><span class="err">//</span><span class="na">platform</span><span class="err">.</span><span class="na">selfkey</span><span class="err">.</span><span class="na">org</span><span class="err">/</span><span class="na">schema</span><span class="err">/</span><span class="na">attribute</span><span class="err">/</span><span class="na">last-name</span><span class="err">.</span><span class="na">json</span><span class="err">"</span>
-                    <span class="err">}</span>
-                <span class="err">],</span>
-            <span class="err">}</span>
-        <span class="err">});</span>
+                        id: "</span><span class="nx">first_name</span><span class="s2">",
+                        label: "</span><span class="nx">First</span> <span class="nx">Name</span><span class="s2">",
+                        schemaId: "</span><span class="nx">http</span><span class="p">:</span><span class="c1">//platform.selfkey.org/schema/attribute/first-name.json"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="na">id</span><span class="p">:</span> <span class="s2">"last_name"</span><span class="p">,</span>
+                        <span class="na">label</span><span class="p">:</span> <span class="s2">"Last Name"</span><span class="p">,</span>
+                        <span class="na">attribute</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/last-name.json"</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
 
-<span class="err">&lt;/</span><span class="na">script</span><span class="nt">&gt;</span>
-
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span>
 </code></pre><h2 id='node-js'>Node.JS</h2>
 <p>TBD by SelfKey Team  </p>
 <h2 id='asp-net'>ASP.NET</h2>
 <p>TBD by SelfKey Team  </p>
 <h2 id='selfkey-service'>SelfKey Service</h2>
 <p>TBD by SelfKey Team  </p>
-<h1 id='e-authentication'>E. Authentication</h1><h2 id='overview-3'>Overview</h2>
-<p>The purpose of this function is to prove the user has ownership over a Decentralized Identifier (DID) presented for authentication. To do this, we issue a <strong>&quot;Challenge-Response&quot;</strong> protocol to cryptographically prove ownership via private key. For Details about API endpoints, please consult: <a href="#f-rest-api-spec">REST API Spec</a>.</p>
-
-<aside class="notice">Note: All communications MUST be done via secure SSL connection.</aside>
-<h2 id='part-1-challenge-response-protocol'>Part 1: Challenge-Response Protocol</h2>
-<ol>
-<li>The SelfKey Identity Wallet requests a unique nonce from the your website and sends the Ethereum public key.</li>
-<li>Your website responds with a Challenge JWT Token containing the public key in subject and nonce claim.</li>
-<li>The wallet receives the Challenge Token, decodes it and extracts the nonce.</li>
-<li>The wallet creates a signature of the nonce signed with it&#39;s private key.</li>
-<li>The wallet replies to your website with the challenge JWT token and signature.</li>
-<li>Your website verifies that signature corresponds to the public key and nonce inside the JWT challenge token.</li>
-<li>Your website replies to the wallet by issuing a Wallet JWT token.</li>
-<li>The SelfKey Identity Wallet uses the &quot;Wallet JWT Token&quot; to perform other requests to your website.</li>
-</ol>
-<h2 id='part-2-jwt-json-web-token'>Part 2: JWT-JSON Web token</h2>
-<p>How To Implement JWT Tokens:</p>
-
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JSON Web Token: Wikipedia</a></li>
-<li><a href="https://jwt.io/">JWT.io</a></li>
-<li><a href="https://auth0.com/resources/ebooks/jwt-handbook">JWT Handbook</a></li>
-<li><a href="https://auth0.com/docs/jwt">Auth0 JWT Docs</a></li>
-</ul>
-<h3 id='allowed-algorithms'>Allowed Algorithms</h3>
-<ul>
-<li><strong>HMAC</strong> - Default</li>
-<li><strong>RSA</strong> - Suitable for multi server authentication (STILL IN DEVELOPMENT)</li>
-</ul>
-<h2 id='part-3-challenge-token'>Part 3: Challenge Token</h2>
-<p>Besides several requirements below, you are free to include any data in your token for verification.</p>
-
-<p>Required Claims:</p>
-
-<ul>
-<li><strong>sub</strong>: (Subject) The wallet&#39;s public key</li>
-<li><strong>iat</strong>: (Issued At) the epoch timestamp that the JWT was issued at</li>
-<li><strong>exp</strong>: (Expiration)the epoch timestamp at which the JWT expires</li>
-<li><strong>nonce</strong>: (Number used Once) a random string of bytes (base64-encoded) which must be signed in order to authenticate</li>
-<li><strong>typ</strong>: &quot;IDW_CHALLANGE&quot;</li>
-<li>Recommended token expiration time: 30 min</li>
-</ul>
-<h2 id='part-4-wallet-token'>Part 4: Wallet Token</h2>
-<p>Besides several requirements below, you are free to include any data in your token for verification.</p>
-
-<p>Required Claims:</p>
-
-<ul>
-<li><strong>sub</strong>: (Subject) The wallet&#39;s public key</li>
-<li><strong>iat</strong>: (Issued At) the epoch timestamp that the JWT was issued at</li>
-<li><strong>exp</strong>: (Expiration)the epoch timestamp at which the JWT expires</li>
-<li><strong>typ</strong>: &quot;IDW_ACCESS&quot;</li>
-<li>Recommended token expiration time: 60 min</li>
-</ul>
-<h2 id='part-5-how-to-verify-wallet-token-on-other-servers'>Part 5: How To Verify Wallet Token On Other Servers</h2>
-<ul>
-<li>JWT token can be verified on other servers, not just one.</li>
-<li>This allows our API to reside in several different services, not necessary all endpoints in one.</li>
-<li>For this to work, you must initialize your JWT verification logic with a shared secret key between the servers.</li>
-<li>A better approach would be to use RS256 algorithm, and have your private key be accessible only to the server that hosts the challenge/response endpoint.</li>
-<li>Afterwards, any other server that needs to verify it can use the public key.</li>
-</ul>
-<h1 id='f-rest-api-spec'>F. REST API Spec</h1><h2 id='overview-4'>Overview</h2>
+<h1 id='rest-api-spec'>REST API Spec</h1><h2 id='overview-3'>Overview</h2>
 <p>Our REST API is broken down into three parts:</p>
 
 <ol>
@@ -1227,23 +978,23 @@ NOTE: All communications must be done via a secure SSL connection.
 </ul>
 <h2 id='1-authentication'>1: Authentication</h2>
 <ul>
-<li>The goal of this function is to prove that the user has ownership over the presented Decentralized Identifier (DID).</li>
+<li>The goal is to prove that the user has ownership over the presented Decentralized Identifier (DID).</li>
 <li>This is done through a cryptographic challenge-response protocol as detailed below.</li>
 </ul>
 <h3 id='challenge'>Challenge</h3>
 <p>Overview: This request is dispatched by the SelfKey Identity Wallet to start establishing the authentication session with your website.</p>
 <h3 id='request'>Request</h3>
-<p><code>GET /auth/challenge/${publicKey}</code></p>
+<p><code>GET /auth/challenge/{did}</code></p>
 
 <p>URL Params:</p>
 
 <ul>
-<li>publicKey - standard Ethereum public key with (Note 0x prefix is required)</li>
+<li>did - the user did</li>
 </ul>
 
 <p>Example:</p>
 
-<p><code>GET /auth/challenge/0x3a1076bf45ab87712ad64ccb3b10217737f7faacbf2872e88fdd9a537d8fe266</code></p>
+<p><code>GET /auth/challenge/did:selfkey:0x11c47898a9d3498986129cdb0b8ac3ed468f5e400cb0076d40f355ad1ad2a120</code></p>
 
 <p>Headers:</p>
 
@@ -1263,15 +1014,15 @@ NOTE: All communications must be done via a secure SSL connection.
   &quot;jwt&quot;:&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIweDc0NWZhYmQyZWZkYmY5ZGViMzE2NDJiMjA1NGVlMmJjNzg2ZWJlYTA5NmQzNmMwYjFiMzA1ZWRhYWY5ODEzYzZiNDA1MWEzMzQyNjZjOWY0MGI3MTQzODFjMDNkYTVkYTMxNWVjMjA3MDAwZmE3YmI3NDg2OGE1ZTYxNDIxZTMxIiwiaWF0IjoxNTE2MjM5MDIyLCJub25jZSI6IjlWeDFRUmswbzk2UGNKcDhXbnhvNy9DMjdCQnJ0aFdHZTlPcUZ6OGRwa2VjbVNVQ0Q3RnJQNUhpZW5vWUg3OTN1cG1nYmtLNFY3c0JMKzR6YWJkQjJRPT0iLCJzY29wZSI6ImF1dGgvY2hhbGxlbmdlIn0.5V2BBI53C0NOzmaIcvNNg_04O6MmTQc4oFvRJ8vf5i0&quot;
   }</code></p>
 
-<p>Error: Invalid Public Key (Status Code: 422)</p>
+<p>Error: DID method is not supported (Status Code: 422)</p>
 
 <p>Body:</p>
 
 <p><code>{ &quot;code&quot;: &quot;invalid_key&quot; &quot;message&quot;: &quot;Invalid public key&quot;}</code></p>
 <h3 id='challenge-reply'>Challenge Reply</h3>
 <ul>
-<li>Request is dispatched by the SelfKey Identity Wallet to verify ownership of an Ethereum private key.</li>
-<li>Payload is ECDA signature for the provided nonce. There are five types of responses:</li>
+<li>Request is dispatched by the SelfKey Identity Wallet to verify ownership of the did authentication private key.</li>
+<li>Payload is ECDA signature value for the provided nonce and key identifier. There are five types of responses:</li>
 <li>1) Success, 2) Error - Bad Request, 3) Error - Not Authorized, 4) Error - Forbidden, and 5) Error - Bad Payload.</li>
 <li>Hardware Wallets: For users with Trezor or Ledger, they will have to manually confirm on devices for ECDA signatures.</li>
 </ul>
@@ -1292,13 +1043,17 @@ NOTE: All communications must be done via a secure SSL connection.
 <p>Body:</p>
 
 <ul>
-<li>JSON payload containing one key &#39;signature&#39;.</li>
-<li>It will contain an ECDA signature generated by signing the nonce with Ethereum private key.</li>
+<li>JSON payload containing one &#39;signature&#39; object with value and keyId properties.</li>
+<li>It will contain an ECDA signature value generated by signing the nonce with the did authentication private key.</li>
 <li>Represented as hex (rpc sig).</li>
 </ul>
-
-<p><code>{&quot;signature&quot;: &quot;0xf62e386b48761c61d5e0a54d90ba6bea1ee9648d9e26f1301e9be2306843190357c1d1c915244aa171bc34b0c2c6b66ad546ef651eeaa7add8335675e3e5454601&quot;}</code></p>
-<h3 id='responses'>Responses</h3>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="s2">"signature"</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="s2">"value"</span><span class="p">:</span><span class="s2">"0xf62e386b48761c61d5e0a54d90ba6bea1ee9648d9e26f1301e9be2306843190357c1d1c915244aa171bc34b0c2c6b66ad546ef651eeaa7add8335675e3e5454601"</span><span class="p">,</span>
+    <span class="s2">"keyId"</span><span class="p">:</span> <span class="s2">"did:selfkey:0x11c47898a9d3498986129cdb0b8ac3ed468f5e400cb0076d40f355ad1ad2a120#keys-1"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><h3 id='responses'>Responses</h3>
 <p>Success (Status Code: 200)</p>
 
 <p>Body:</p>
@@ -1528,19 +1283,19 @@ Headers:</p>
 <p><code>{
   &quot;redirectTo&quot;: &quot;/login-failed.html&quot;
 }</code></p>
-<h2 id='3-kyc-selfkey-marketplace'>3: KYC (SelfKey Marketplace)</h2><h3 id='list-templates'>List Templates</h3><pre class="highlight plaintext"><code>[
-    {
-        "name": "Token Sale Signup for Individuals",
-        "description": "For individuals wishing to participate in the Example Co token sale.",
-        "templateId": "507f1f77bcf86cd799439011",
-    },
-    {
-        "name": "Token Sale Signup for Companies",
-        "description": "For companies, trusts or other organizations wishing to participate in the Example Co token sale.",
-        "templateId": "534bad4b8342419e5a94b1d2",
+<h2 id='3-kyc-selfkey-marketplace'>3: KYC (SelfKey Marketplace)</h2><h3 id='list-templates'>List Templates</h3><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Token Sale Signup for Individuals"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"For individuals wishing to participate in the Example Co token sale."</span><span class="p">,</span>
+        <span class="s2">"templateId"</span><span class="p">:</span> <span class="s2">"507f1f77bcf86cd799439011"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Token Sale Signup for Companies"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"For companies, trusts or other organizations wishing to participate in the Example Co token sale."</span><span class="p">,</span>
+        <span class="s2">"templateId"</span><span class="p">:</span> <span class="s2">"534bad4b8342419e5a94b1d2"</span><span class="p">,</span>
 
-    }
-]
+    <span class="p">}</span>
+<span class="p">]</span>
 </code></pre>
 <ul>
 <li>These templates are created to run identity verification checks based on submitted attributes or documents.</li>
@@ -1562,50 +1317,48 @@ Headers:</p>
 <p><strong>Response</strong>:</p>
 
 <p>Success (Status Code: 200)</p>
-<h3 id='get-template-details'>Get Template Details</h3><pre class="highlight javascript tab-javascript"><code><span class="s2">`
-{
-  "id": "5c6619ae1ea6440111989852",
-  "description": "Standard Attributes and Documents",
-  "atributes": [
-    {
-      "id": "5c4e6edda58d2900401ba61b",
-      "required": true,
-      "schemaId": "http://platform.selfkey.org/schema/attribute/first-name.json"
-    },
-    {
-      "id": "5c4e6efaa58d2900401ba61d",
-      "required": true,
-      "schemaId": "http://platform.selfkey.org/schema/attribute/last-name.json "
-    },
-    {
-      "id": "5c511c64c7315f003ecfe2dc",
-      "required": true,
-      "schemaId": "http://platform.selfkey.org/schema/attribute/email.json"
-    },
-    {
-      "id": "5c4e6e6ba58d2900401ba615",
-      "required": true,
-      "schemaId": "http://platform.selfkey.org/schema/attribute/bank-statement.json"
-    },
-    {
-      "id": "5c4e6e89a58d2900401ba617",
-      "required": false,
-      "schemaId": "http://platform.selfkey.org/schema/attribute/bank-statement.json"
-    },
-    {
-      "id": "5c4e6ea6a58d2900401ba619",
-      "required": true,
-      "schemaId": "http://platform.selfkey.org/schema/attribute/passport.json"
-    }
-  ],
-  "name": "Standard Attributes"
-`</span>
+<h3 id='get-template-details'>Get Template Details</h3><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c6619ae1ea6440111989852"</span><span class="p">,</span>
+  <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Standard Attributes and Documents"</span><span class="p">,</span>
+  <span class="s2">"atributes"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c4e6edda58d2900401ba61b"</span><span class="p">,</span>
+      <span class="s2">"required"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/first-name.json"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c4e6efaa58d2900401ba61d"</span><span class="p">,</span>
+      <span class="s2">"required"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/last-name.json "</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c511c64c7315f003ecfe2dc"</span><span class="p">,</span>
+      <span class="s2">"required"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/email.json"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c4e6e6ba58d2900401ba615"</span><span class="p">,</span>
+      <span class="s2">"required"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/bank-statement.json"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c4e6e89a58d2900401ba617"</span><span class="p">,</span>
+      <span class="s2">"required"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/bank-statement.json"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c4e6ea6a58d2900401ba619"</span><span class="p">,</span>
+      <span class="s2">"required"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/passport.json"</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Standard Attributes"</span>
 </code></pre>
 <p>Returns a specific template details.</p>
 
 <p><strong>Request</strong>:</p>
 
-<p><code>GET /templates/${templateId}</code></p>
+<p><code>GET /templates/{templateId}</code></p>
 
 <p>URL params:</p>
 
@@ -1741,40 +1494,40 @@ Headers:</p>
   &quot;code&quot;: &quot;forbidden&quot;,
   &quot;message&quot;: &quot;Insufficient permissions&quot;
 }</code></p>
-<h3 id='create-kyc-application'>Create KYC Application</h3><pre class="highlight plaintext"><code>
-{
-  "templateId": "5c6533c440e7080070dda1f4",
-  "attributes": [
-    {
-      "id": "5c657861e97908003ec70d19",
-      "schemaId": "http://platform.selfkey.org/schema/attribute/first-name.json",
-      "data": "John"
-    },
-    {
-      "id": "5c657880e97908003ec70d1b",
-      "schemaId": "http://platform.selfkey.org/schema/attribute/last-name.json",
-      "data": "Doe"
-    },
-    {
-      "id": "5c657898e97908003ec70d1d",
-      "schemaId": "http://platform.selfkey.org/schema/attribute/email.json",
-      "data": "john.doe@domain.com"
-    },
-    {
-      "id": "5c6578c4e97908003ec70d1f",
-      "schemaId": "http://platform.selfkey.org/schema/attribute/passport.json",
-      "data": {
-        "image": {
-          "mimeType": "image/png",
-          "size": 50000,
-          "content": "5c6619ae1ea6440111989852"
-        },
-        "issued": "2019-02-19",
-        "expires": "2029-02-19"
-      }
-    }
-  ]
-}
+<h3 id='create-kyc-application'>Create KYC Application</h3><pre class="highlight javascript tab-javascript"><code>
+<span class="p">{</span>
+  <span class="s2">"templateId"</span><span class="p">:</span> <span class="s2">"5c6533c440e7080070dda1f4"</span><span class="p">,</span>
+  <span class="s2">"attributes"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c657861e97908003ec70d19"</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/first-name.json"</span><span class="p">,</span>
+      <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"John"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c657880e97908003ec70d1b"</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/last-name.json"</span><span class="p">,</span>
+      <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"Doe"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c657898e97908003ec70d1d"</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/email.json"</span><span class="p">,</span>
+      <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"john.doe@domain.com"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"5c6578c4e97908003ec70d1f"</span><span class="p">,</span>
+      <span class="s2">"schemaId"</span><span class="p">:</span> <span class="s2">"http://platform.selfkey.org/schema/attribute/passport.json"</span><span class="p">,</span>
+      <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"image"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"mimeType"</span><span class="p">:</span> <span class="s2">"image/png"</span><span class="p">,</span>
+          <span class="s2">"size"</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span>
+          <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"5c6619ae1ea6440111989852"</span>
+        <span class="p">},</span>
+        <span class="s2">"issued"</span><span class="p">:</span> <span class="s2">"2019-02-19"</span><span class="p">,</span>
+        <span class="s2">"expires"</span><span class="p">:</span> <span class="s2">"2029-02-19"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </code></pre>
 <p><code>POST /applications</code></p>
 
@@ -2031,7 +1784,7 @@ Headers:</p>
   "currentStatus": 6
 }`</span>
 </code></pre>
-<p><code>GET /applications/${applicationId}</code></p>
+<p><code>GET /applications/{applicationId}</code></p>
 
 <p>Returns all available details about a specific application</p>
 
@@ -2087,80 +1840,251 @@ Headers:</p>
   &quot;code&quot;: &quot;forbidden&quot;,
   &quot;message&quot;: &quot;Insufficient permissions&quot;
 }</code></p>
-<h3 id='create-kyc-application-payment'>Create KYC Application Payment</h3>
-<p><code>POST /applications/${applicationId}/payments</code></p>
+<h1 id='configuring-your-website'>Configuring Your Website</h1><h2 id='overview-4'>Overview</h2>
+<p>Using the <a href="https://www.selfkey.org/download">SelfKey Identity Wallet</a> (desktop application) and <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> (browser plugin), we can utilize a user&#39;s Decentralized Identifier (DID) for authentication to your website. The configuration object has similar structure for both SelfKey Extension and SelfKey Marketplace integrations, but has several distinctions for each and is usually placed in different places.</p>
 
-<p><strong>Request</strong></p>
-
-<p>Headers:</p>
-
+<p>The SelfKey Extension configuration object would be usually passed directly when initialized inside <a href="#e-selfkey-client-lib">Selfkey-Client-Lib</a>. The SelfKey Marketplace integration object will usually be stored in the Selfkey API (Airtable inside <em>relying_party_config field</em>), you will need to submit the configuration (or all relevant details) to us.</p>
+<h2 id='1-common-configuration-properties'>1: Common Configuration Properties</h2>
+<p>There are two main properties that exist between both objects regarding integration endpoints.</p>
+<h3 id='rootendpoint'>rootEndpoint</h3>
 <ul>
-<li>User-Agent</li>
-<li>Origin</li>
-<li>Accept: application/json</li>
-<li>Authorization: wallet token</li>
+<li>This is the default integration endpoint.</li>
+<li>If no overrides, by default the <a href="https://www.selfkey.org/download">SelfKey Identity Wallet</a> will try to guess all endpoints by appending their name to it.<br></li>
+<li>If the <em>rootEndpoint</em> provided is not an absolute URL, it will be prepended with website URL (see website config option).</li>
 </ul>
 
-<p>Body: JSON object containing application payment</p>
-
-<p>Application payment object will contain:</p>
+<p><em>Example:</em></p>
 
 <ul>
-<li>transactionHash – the hash of an ethereum transaction</li>
+<li><strong>rootEndpoint</strong>: &quot;https://yoursite.com/api/v1/selfkey/&quot;</li>
+<li>The <a href="https://www.selfkey.org/download">SelfKey Identity Wallet</a> will derive auth/challenge endpoint and templates endpoint by simply appending their name to root endpoint:</li>
+<li><strong>Challenge</strong>: https://yoursite.com/api/v1/selfkey/auth/challange</li>
+<li><strong>Templates</strong>: https://yoursite.com/api/v1/selfkey/template</li>
+</ul>
+<h3 id='endpoints'>endpoints</h3>
+<ul>
+<li>The endpoints option contain overrides to the default API endpoint mechanisms.</li>
+<li>Override config supports both absolute URLs and relative URLs.</li>
+<li>Our API is configurable in terms of URLs to the point that different endpoints can run on different services as long as they can use a common <a href="#authentication">Authentication</a> scheme.</li>
 </ul>
 
-<p><code>{
-  &quot;transactionHash&quot;: &quot;0x8b69a0ca303305a92d8d028704d65e4942b7ccc9a99917c8c9e940c9d57a9662&quot;
-}</code></p>
+<p><em>Example:</em></p>
 
-<p><strong>Response</strong></p>
+<p><strong>rootEndpoint of &quot;https://yoursite.com/api/v1/selfkey/&quot;</strong></p>
 
-<p>Success (Status Code: 200)</p>
-<pre class="highlight javascript tab-javascript"><code><span class="s2">`{
-  "createdAt": "2019-02-21T03:44:47.555Z",
-  "id": "5c6e1eaf049ff100646cedd8",
-  "transactionHash": "0x8b69a0ca303305a92d8d028704d65e4942b7ccc9a99917c8c9e940c9d57a9662"
-}`</span>
+<ul>
+<li><p>Default behavior for the template endpoint is to use: https://yoursite.com/api/v1/selfkey/templates endpoint, but there are two options for relative override and absolute override:</p></li>
+<li><p><strong>Relative override</strong>: Instead of default, it will use -&gt; <em>https://yoursite.com/api/v1/selfkey/repository/templates</em></p></li>
+</ul>
+
+<p><code>{ &quot;endpoints&quot; : &quot;/templates&quot;: &quot;/repository/templates&quot; }</code></p>
+
+<ul>
+<li><strong>Absolute override</strong>: Instead of default, it will use -&gt; <em>https://api.yoursite.com/repository/templates</em></li>
+</ul>
+
+<p><code>{ &quot;endpoints&quot; : &quot;/templates&quot;: &quot;https://api.yoursite.com/repository/templates&quot; }</code></p>
+<h3 id='complete-list-of-possible-endpoints'>Complete List Of Possible endpoints</h3>
+<ul>
+<li>&#39;/auth/challenge&#39; (COMMON)</li>
+<li>&#39;/users/token&#39; (COMMON)</li>
+<li>&#39;/users/files&#39; (LWS)</li>
+<li>&#39;/users&#39; (LWS)</li>
+<li>&#39;/login&#39; (LWS)</li>
+<li>&#39;/templates&#39; (Marketplace)</li>
+<li>&#39;/templates/:id&#39; (Marketplace)</li>
+<li>&#39;/applications&#39; (Marketplace)</li>
+<li>&#39;/applications/:id&#39; (Marketplace)</li>
+<li>&#39;/applications&#39; (Marketplace)</li>
+<li>&#39;/applications/:id&#39; (Marketplace)</li>
+<li>&#39;/files&#39; (Marketplace)</li>
+</ul>
+<h3 id='parameterized-endpoints'>Parameterized Endpoints:</h3>
+<ul>
+<li>Some endpoints like <em>&#39;/templates/:id&#39;</em> will contain resource ID as part of the URL</li>
+<li>The SelfKey Identity Wallet will replace <em>&quot;:id &quot;</em> for actual resource ID on communication.</li>
+</ul>
+<h3 id='meta'>Meta</h3>
+<ul>
+<li>This config option is not used by the SelfKey Identity Wallet.</li>
+<li>It is an object that will be passed to relying party on certain endpoint requests as is.</li>
+<li><p>Currently it is used by the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> for a user creation endpoint.</p></li>
+<li><p>Example: <code>{meta: { templateId: &#39;333444&#39; }}</code></p></li>
+</ul>
+<h2 id='2-selfkey-extension-configuration'>2: SelfKey Extension Configuration</h2>
+<p>The configuration object is passed differently between different client lib implementations (for different frameworks).
+Please consult with Selfkey Client Lib for specifics.</p>
+
+<p><strong>ui</strong></p>
+
+<p>This option is used to define how Selfkey Client Lib interacts with your website. Currently only one option is available inside it: <strong>el</strong>. We hope to extend our library and provide more UI customization options like theme and CSS overrides in the future..</p>
+
+<p><strong>el</strong></p>
+
+<ul>
+<li>Can be one of the following: DOM element, css query selector, or an array containing a mixture of the previous two.</li>
+<li>The current behavior of the <a href="#e-selfkey-client-lib">Selfkey-Client-Lib</a> is to use them as containers for the <a href="https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd">SelfKey Extension</a> login button</li>
+<li>Example: <code>{ui: {el: &#39;.lwsClient&#39;}}</code></li>
+</ul>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+   website: <span class="o">{</span>
+       name: <span class="s1">'LWS Example Site'</span>,
+       url: <span class="s1">'https://yoursite.com/'</span>,
+       termsUrl: <span class="s1">'https://yoursite/terms.html'</span>,
+       policyUrl: <span class="s1">'https://yoursite.com/policy.html'</span>,
+   <span class="o">}</span>,
+<span class="o">}</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+<span class="p">{</span>
+   <span class="nl">website</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nl">name</span><span class="p">:</span> <span class="s1">'LWS Example Site'</span><span class="p">,</span>
+       <span class="nx">url</span><span class="p">:</span> <span class="s1">'https://yoursite.com/'</span><span class="p">,</span>
+       <span class="nx">termsUrl</span><span class="p">:</span> <span class="s1">'https://yoursite/terms.html'</span><span class="p">,</span>
+       <span class="nx">policyUrl</span><span class="p">:</span> <span class="s1">'https://yoursite.com/policy.html'</span><span class="p">,</span>
+   <span class="p">},</span>
+<span class="p">}</span>
 </code></pre>
-<p>Body: JSON object with created payment details</p>
+<p><strong>website</strong></p>
 
-<p>Error - Bad Request (Status Code: 400)</p>
+<ul>
+<li>Information about the website integrating LWS.</li>
+<li>This information is displayed for the user on the extension popup.</li>
+<li><strong>name</strong>: Name of the website</li>
+<li><strong>url</strong>: Canonical url for the website</li>
+<li><strong>termsUrl</strong>: a link to service terms of service</li>
+<li><strong>policyUrl</strong>: a link to service privacy policy</li>
+</ul>
+<h3 id='attributes'>attributes</h3><pre class="highlight plaintext"><code>attributes: [
+           {
+               id: "first_name",
+               label: "First Name",
+               schemaId: "http://platform.selfkey.org/schema/attribute/first-name.json"
+           },
+           {
+               label: "Last Name",
+               attribute: "http://platform.selfkey.org/schema/attribute/last-name.json"
+           },
+           {
+               id: "email",
+               schemaId: "http://platform.selfkey.org/schema/attribute/email.json"
+           },
+           "http://platform.selfkey.org/schema/attribute/email.json"
+],
+</code></pre>
+<ul>
+<li>A list of attributes that are required for signup with the service.</li>
+<li><p>Each attribute can contains the following information:</p></li>
+<li><p><strong>schemaId</strong>: A url to id attribute in https://platform.selfkey.org/repository.json and possibly other repositories in future. (required)</p></li>
+<li><p><strong>id</strong>: an unique identifier for a field on relying party server (optional)</p></li>
+<li><p><strong>label</strong>: a label for this attribute to be displayed for the user (optional, if not provided, we will use the title attribute of schema)</p></li>
+<li><p>Alternatively an attribute can be a simple string which representing schemaId</p></li>
+</ul>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">onAuthResponse</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'OnAuthResponse'</span><span class="p">,</span> <span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span>
+                        <span class="s1">'user-token'</span>
+                    <span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">`UserPayload Error: </span><span class="p">${</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span>
+                        <span class="s1">'user-token'</span>
+                    <span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">`UserPayload: </span><span class="p">${</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
+                <span class="p">}</span>
 
-<p><code>{
-  &quot;code&quot;: &quot;token_missing&quot;,
-  &quot;message&quot;: &quot;Missing authorization header&quot;
-}</code></p>
 
-<p>Error - Not Authorized (Status Code: 401)</p>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">ui</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+                <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">ui</span><span class="p">.</span><span class="nx">popup</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;b&gt;Closing popup&lt;/b&gt;'</span><span class="p">;</span>
+                <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+                <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">ui</span><span class="p">.</span><span class="nx">popup</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+                <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
+            <span class="p">}</span>
+</code></pre><h3 id='onauthcallback'>onAuthCallback</h3>
+<ul>
+<li>An optional callback that can be passed to configuration object.</li>
+<li>If it is passed, client-lib will call it instead of performing the default login behavior (calling login endpoint and redirecting to provided URL).</li>
+<li>It will be called on each login/signup attempt.</li>
+</ul>
 
-<p>Body</p>
+<p><strong>Arguments</strong>:</p>
 
-<p><code>{
-  &quot;code&quot;: &quot;token_invalid&quot;,
-  &quot;message&quot;: &quot;Invalid token: Missing nonce claim&quot;
-}</code></p>
+<ul>
+<li>error: Will contain error object if auth/signup failed. Will be null on successful authentication.</li>
+<li>response: Will contain response object. Not modified, as returned from /auth/token endpoint.</li>
+<li>ui: Will contain a reference to selfkey ui elements. Will allow to insert custom html and hide popup if necessary.</li>
+</ul>
+<h3 id='complete-selfkey-extension-configuration-example'>Complete SelfKey Extension Configuration Example</h3>
+<blockquote>
+<p>Complete SelfKey Extension Configuration Example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+            <span class="nl">ui</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nl">el</span><span class="p">:</span> <span class="s1">'.lwsClient'</span>
+            <span class="p">},</span>
+            <span class="nx">website</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nl">name</span><span class="p">:</span> <span class="s1">'LWS Example'</span><span class="p">,</span>
+                <span class="nx">url</span><span class="p">:</span> <span class="s1">'http://localhost:3030/'</span><span class="p">,</span>
+                <span class="nx">termsUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/terms.html'</span><span class="p">,</span>
+                <span class="nx">policyUrl</span><span class="p">:</span> <span class="s1">'http://localhost:3030/policy.html'</span>
+            <span class="p">},</span>
+            <span class="nx">rootEndpoint</span><span class="p">:</span> <span class="s1">'/api/v1/selfkey'</span><span class="p">,</span>
+            <span class="nx">attributes</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="na">id</span><span class="p">:</span> <span class="s1">'first_name'</span><span class="p">,</span>
+                    <span class="na">label</span><span class="p">:</span> <span class="s1">'First Name'</span><span class="p">,</span>
+                    <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/first-name.json'</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="na">id</span><span class="p">:</span> <span class="s1">'last_name'</span><span class="p">,</span>
+                    <span class="na">label</span><span class="p">:</span> <span class="s1">'Last Name'</span><span class="p">,</span>
+                    <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/last-name.json'</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="na">id</span><span class="p">:</span> <span class="s1">'email'</span><span class="p">,</span>
+                    <span class="na">label</span><span class="p">:</span> <span class="s1">'Email'</span><span class="p">,</span>
+                    <span class="na">schemaId</span><span class="p">:</span> <span class="s1">'http://platform.selfkey.org/schema/attribute/email.json'</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nx">onAuthResponse</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'OnAuthResponse'</span><span class="p">,</span> <span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ui</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span>
+                        <span class="s1">'user-token'</span>
+                    <span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">`UserPayload Error: </span><span class="p">${</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span>
+                        <span class="s1">'user-token'</span>
+                    <span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">`UserPayload: </span><span class="p">${</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
+                <span class="p">}</span>
 
-<p><code>{
-  &quot;code&quot;: &quot;token_invalid&quot;,
-  &quot;message&quot;: &quot;Malformed authorization header&quot;
-}</code></p>
 
-<p>Error - Forbidden (Status Code: 403)</p>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">ui</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+                <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">ui</span><span class="p">.</span><span class="nx">popup</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;b&gt;Closing popup&lt;/b&gt;'</span><span class="p">;</span>
+                <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+                <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">ui</span><span class="p">.</span><span class="nx">popup</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+                <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
+            <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre>
+<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
-<p>Body:</p>
-
-<p><code>{
-  &quot;code&quot;: &quot;forbidden&quot;,
-  &quot;message&quot;: &quot;Insufficient permissions&quot;
-}</code></p>
-
-<p>Error - Bad Payload (Status Code: 422, Several Errors Possible)</p>
-
-<p>Example:</p>
-
-<p><code>{
-  &quot;message&quot;: &quot;Transaction hash is missing&quot;
-}</code></p>
+<p><center><em>This area intentionally left blank (see right).</em></center></p>
+<h2 id='3-selfkey-marketplace-configuration'>3: SelfKey Marketplace Configuration</h2>
+<p>There are no special configuration options available for the SelfKey Marketplace at this point.</p>
+<h3 id='complete-selfkey-marketplace-configuration-example'>Complete SelfKey Marketplace Configuration Example:</h3><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+        <span class="nl">rootEndpoint</span><span class="p">:</span> <span class="s2">"https://kyc-instance-url.com/api/v1/"</span><span class="p">,</span>
+        <span class="nx">endpoints</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">'/templates/:id'</span><span class="p">:</span> <span class="s2">`https://kyc-instance-url.com/api/v1/templates/:id?format=minimum`</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<ul>
+<li>This is a simple integration that will only contain the root endpoint.</li>
+<li>If you are using our compliance solution KYC-Chain, integrations will also contain an override for the template endpoints.</li>
+</ul>
 
       </div>
       <div class="dark-box">
