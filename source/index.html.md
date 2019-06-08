@@ -22,12 +22,12 @@ The SelfKey ecosystem is broken down into three main parts. First is the [SelfKe
 
 There are six sections to this document:
 
-1. **SelfKey Extension**: Our Chrome browser plugin and how it works.
-2. **SelfKey Marketplace**: Sign up new users and onboard them with our marketplace.
-3. **Configuring Your Website**: Both frontend, backend, and our API endpoints.
-4. **SelfKey Client Lib**: Frontend website library to authenticate with the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd).
-5. **Authentication**: How to prove users have ownership over a Decentralized Identifier (DID).
+1. **Login With SelfKey**: User sign up and authentication using our Chrome browser extension.
+2. **SelfKey Marketplace**: User sign up and onboarding with our marketplace.
+5. **Authentication**: Authentication challenge response flow in detail.
+4. **Selfkey-Client-Lib**: Frontend website library to interact with the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd).
 6. **REST API Spec**: Detailed spec of the SelfKey APIs.
+3. **Configuring Your Website**: Both frontend, backend, and our API endpoints.
 
 <aside class="notice">
 Our compliance solution <a href ="https://www.kyc-chain.com">KYC-Chain</a> has every integration above built in by default.
@@ -35,29 +35,30 @@ Our compliance solution <a href ="https://www.kyc-chain.com">KYC-Chain</a> has e
 
 **How To Use This Document**
 
-You can use our API to access endpoints in the SelfKey Identity Wallet desktop application and the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) browser plugin. If anything is unclear, please contact us at [help@selfkey.org](mailto:help@selfkey.org) and we can help you with the integrations. The format of this document is broken down into three panels:
+The format of this document is broken down into three panels:
 
 * **Left Panel**: Table of Contents & Search Bar
 * **Middle Panel**: Information & Documentation
 * **Right Panel**: Code Samples by Language
 
+If anything is unclear, please contact us at [help@selfkey.org](mailto:help@selfkey.org) and we can help you with the integrations.
 
-# A. SelfKey Extension
+# Login With SelfKey
 
 ## Overview
 
-When a user has installed the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) browser plugin, they can deploy their Decentralized Identifier (DID) for authentication and logging into your website.
+The [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) browser extension enables users to authenticate and login to your website leveraging their Decentralized Identifier (DID).
 
-By installing the [Selfkey-Client-Lib](#e-selfkey-client-lib), a "Login With SelfKey" button will be displayed on your website. The [SelfKey Identity Wallet](https://www.selfkey.org/download) (Mac OS/Win/Linux) acts as the backend layer that connects to the Ethereum blockchain and a user's Decentralized Identifier (DID).
+By installing the [Selfkey-Client-Lib](#selfkey-client-lib), a "Login With SelfKey" button will be displayed on your website. The [SelfKey Identity Wallet](https://www.selfkey.org/download) (Mac OS/Win/Linux) acts as the backend layer that connects to the Ethereum blockchain and a user's Decentralized Identifier (DID).
 
 ## Part 1: User Requirements
 For a user to successfully use their Decentralized Identifier (DID) as an authentication method, there are two applications that must be installed and activated by the user.
 
 * Step 1: [SelfKey Identity Wallet] (https://selfkey.org/download/) must be installed, opened, and logged in.
-* Step 2: [Selfkey Extension] browser plugin must be installed and activated.
+* Step 2: [Selfkey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) browser extension must be installed and activated.
 
 <aside class="success">
-Note: If both are not installed, there will be instructions after clicking "Login with SelfKey" on your website.
+Note: If one of the requirements is missing, there will be install instructions after clicking "Login with SelfKey" on your website.
 </aside>
 
 
@@ -65,15 +66,13 @@ Note: If both are not installed, there will be instructions after clicking "Logi
 
 To enable the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) as an authentication method for your website, a JavaScript library needs to be installed. This displays a *"Login With SelfKey"* button on your website for users to click. Clicking this button starts the login workflow.
 
-Exact instructions can be found in [Selfkey Client Lib](#e-selfkey-client-lib) and [configuring your website](#c-configuring-your-website).
+### Installation Overview:
 
-
-### Installation Instructions:
-
-1. Integrate [*Selfkey Client Lib*](#e-selfkey-client-lib) into your website.
+1. Integrate [*Selfkey Client Lib*](#selfkey-client-lib) into your website.
 2. Select where you want the *"Login With SelfKey"* button to appear.
-3. Initialize the *"Login With SelfKey"* button by passing [SelfKey Extension Config](#d-configuring-your-website) to [Selfkey Client Library](#e-selfkey-client-lib).
+3. Initialize the *"Login With SelfKey"* button by passing [SelfKey Extension Config](#configuring-your-website) to [Selfkey Client Library](#selfkey-client-lib).
 
+Detailed instructions can be found in [Selfkey Client Lib](#selfkey-client-lib) and [configuring your website](#configuring-your-website).
 
 ## Part 3: Backend Integration
 
@@ -81,19 +80,20 @@ Exact instructions can be found in [Selfkey Client Lib](#e-selfkey-client-lib) a
 Question: Are you using <a href ="https://www.kyc-chain.com">KYC-Chain</a> or an in-house compliance tool for verifying identities of new users?
 </aside>
 
-We have two options for the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) backend integration.
+We have two options for Login With Selfkey backend integration.
 
 ### Option 1: For Non KYC-Chain Clients
 
-The following endpoint should be implemented on your backend: [Authentication](#e-authentication)
+The following endpoints should be implemented on your backend:
 
-* **Authentication** – Challenge
+* **Authentication** – Get Challenge
 * **Authentication** – Challenge Reply
 * **LWS** - Create User file
+* **LWS** - Create User
 * **LWS** - Get user token
-* **LWS** - Login endpoint (optional if onAuthCallback is implemented)
+* **LWS** - Login endpoint (Optional. Called if onAuthCallback is not provided)
 
-Currently we don't to have tools to make this process easier, but there are several options coming soon:
+Currently we don't provide backend SDKs, but there are several options coming soon to make this process easier:
 
 * **[Selfkey Node.js lib]** - WORK IN PROGRESS
 * **[Selfkey ASP.NET lib]** - WORK IN PROGRESS
@@ -101,14 +101,14 @@ Currently we don't to have tools to make this process easier, but there are seve
 
 ### Option 2: For KYC-Chain Clients
 
-If your website is integrated with KYC-Chain, you can leverage our existing [Authentication](#e-authentication) endpoints:
+If your website is integrated with KYC-Chain, you can leverage our existing [Authentication](#authentication) endpoints.
 
-1. KYC Chain should configure your instance to use RSA algorithm for token signatures.
+1. KYC Chain should configure your instance to use the RSA algorithm for token signatures.
 2. You should receive a RSA public key and configure it for token verification.
-3. You should override authentication endpoints in their config to point to KYC-Chain.
+3. You should override authentication endpoints in your config to point to KYC-Chain.
 
 
-# B. SelfKey Marketplace
+# SelfKey Marketplace
 
 ## 1: Crypto Exchanges
 
@@ -124,6 +124,7 @@ Currently, integration for the SelfKey Marketplace is only available for crypto 
         "rootEndpoint": INSTANCE_URL,
         "endpoints": {
             "/templates/:id": "INSTANCE_URL/templates/:id?format=minimum"
+            "/users/file" : "INSTANCE_URL/files",
             "/user/token": "INSTANCE_URL/auth/token"
         }
     }
@@ -161,304 +162,78 @@ Not currently available. Will update API Documentation when tools are ready for 
 <aside class="warning">More documentation coming soon.</aside>
 
 
-# C. Configuring Your Website
+# Authentication
 
 ## Overview
 
-Using the [SelfKey Identity Wallet](https://www.selfkey.org/download) (desktop application) and [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) (browser plugin), we can utilize a user's Decentralized Identifier (DID) for authentication to your website. The configuration object has similar structure for both SelfKey Extension and SelfKey Marketplace integrations, but has several distinctions for each and is usually placed in different places.
+The purpose here is to prove the user has ownership over a Decentralized Identifier (DID) presented for authentication. To do this, we use a **"Challenge-Response"** protocol to cryptographically prove ownership via private key. For Details about API endpoints, please consult: [REST API Spec](#rest-api-spec).
 
-The SelfKey Extension configuration object would be usually passed directly when initialized inside [Selfkey-Client-Lib](#e-selfkey-client-lib). The SelfKey Marketplace integration object will usually be stored in the Selfkey API (Airtable inside *relying_party_config field*), you will need to submit the configuration (or all relevant details) to us.
+<aside class="notice">Note: All communications MUST be done via secure SSL connection.</aside>
 
-## 1: Common Configuration Properties
+## Part 1: Challenge-Response Protocol
 
-There are two main properties that exist between both objects regarding integration endpoints.
+1. The SelfKey Identity Wallet requests a unique nonce for the given DID.
+2. Your website responds with a Challenge JWT Token containing a subject claim with the DID and a nonce claim.
+3. The wallet receives the Challenge Token, decodes it and extracts the nonce.
+4. The wallet creates a signature of the nonce signed with its private key.
+5. The wallet replies to your website with the challenge JWT token, signature value and DID authentication key identifier.
+6. Your website resolves the DID document and extracts the authentication public key. Than verifies that signature corresponds to the public key and nonce inside the JWT challenge token.
+7. Your website replies to the wallet by issuing a Wallet JWT token.
+8. The SelfKey Identity Wallet uses the "Wallet JWT Token" to perform other requests to your website.
 
-### rootEndpoint
 
-* This is the default integration endpoint.
-* If no overrides, by default the [SelfKey Identity Wallet](https://www.selfkey.org/download) will try to guess all endpoints by appending their name to it.  
-* If the *rootEndpoint* provided is not an absolute URL, it will be prepended with website URL (see website config option).
+## Part 2: JWT-JSON Web token
 
-*Example:*
+How To Implement JWT Tokens:
 
-* **rootEndpoint**: "https://yoursite.com/api/v1/selfkey/"
-* The [SelfKey Identity Wallet](https://www.selfkey.org/download) will derive auth/challenge endpoint and templates endpoint by simply appending their name to root endpoint:
-* **Challenge**: https://yoursite.com/api/v1/selfkey/auth/challange
-* **Templates**: https://yoursite.com/api/v1/selfkey/template
+* [JSON Web Token: Wikipedia] (https://en.wikipedia.org/wiki/JSON_Web_Token)
+* [JWT.io] (https://jwt.io/)
+* [JWT Handbook] (https://auth0.com/resources/ebooks/jwt-handbook)
+* [Auth0 JWT Docs] (https://auth0.com/docs/jwt)
 
-### endpoints
+### Allowed Algorithms
+* **HMAC** - Default
+* **RSA** - Suitable for multi server authentication
 
 
-* The endpoints option contain overrides to the default API endpoint mechanisms.
-* Override config supports both absolute URLs and relative URLs.
-* Our API is configurable in terms of URLs to the point that different endpoints can run on different services as long as they can use a common [Authentication & Proof Of Ownership Challenge-Response] scheme.
 
-*Example:*
+## Part 3: Challenge Token
 
-**rootEndpoint of "https://yoursite.com/api/v1/selfkey/"**
+Besides several requirements below, you are free to include any data in your token for verification.
 
-* Default behavior for the template endpoint is to use: https://yoursite.com/api/v1/selfkey/templates endpoint, but there are two options for relative override and absolute override:
+Required Claims:
 
-* **Relative override**: Instead of default, it will use -> *https://yoursite.com/api/v1/selfkey/repository/templates*
+* **sub**: (Subject) The user's DID
+* **iat**: (Issued At) the epoch timestamp that the JWT was issued at
+* **exp**: (Expiration)the epoch timestamp at which the JWT expires
+* **nonce**: (Number used Once) a random string of bytes (base64-encoded) which must be signed in order to authenticate
+* **typ**: "IDW_CHALLANGE"
+* Recommended token expiration time: 30 min
 
-`{ "endpoints" : "/templates": "/repository/templates" }`
+## Part 4: Wallet Token
 
-* **Absolute override**: Instead of default, it will use -> *https://api.yoursite.com/repository/templates*
+Besides several requirements below, you are free to include any data in your token for verification.
 
-`{ "endpoints" : "/templates": "https://api.yoursite.com/repository/templates" }`
+Required Claims:
 
+* **sub**: (Subject) The user's DID
+* **iat**: (Issued At) the epoch timestamp that the JWT was issued at
+* **exp**: (Expiration)the epoch timestamp at which the JWT expires
+* **typ**: "IDW_ACCESS"
+* Recommended token expiration time: 60 min
 
-### Complete List Of Possible endpoints
+## Part 5: How To Verify Wallet Token On Other Servers
 
-* '/auth/challenge' (COMMON)
-* '/auth/token' (COMMON)
-* '/users' (LWS and possibly marketplace – TBD by product)
-* '/templates' (Marketplace)
-* '/templates/:id' (Marketplace)
-* '/applications' (Marketplace)
-* '/applications/:id' (Marketplace)
-* '/applications/:id/payments' (Marketplace)
-* '/applications' (Marketplace)
-* '/applications/:id' (Marketplace)
-* '/files' (Marketplace, and a similar endpoint will be speced out for LWS)
-* '/login'
+* JWT tokens can be verified on other servers, not just one.
+* This allows our API to reside in several different services, not necessary to have all endpoints in one place
+* For this to work, you must initialize your JWT verification logic with a shared secret key between the servers.
+* A better approach would be to use RS256 algorithm, and have your private key be accessible only to the server that hosts the challenge/response endpoint.
+* Afterwards, any other server that needs to verify it can use the public key.
 
-### Parameterized Endpoints:
-* Some endpoints like *'/templates/:id'* will contain resource ID as part of the URL
-* The SelfKey Identity Wallet will replace *":id "* for actual resource ID on communication.
 
+# SelfKey Client Lib
 
-### Meta
-* This config option is not used by the SelfKey Identity Wallet.
-* It is an object that will be passed to relying party on certain endpoint requests as is.
-* Currently it is used by the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) for a user creation endpoint – TBD if it should be passed on other ones
-* Example: `{meta: { applicationId: '333444' }}`
-
-
-## 2: SelfKey Extension Configuration
-
-
-
-The configuration object is passed differently between different client lib implementations (for different frameworks).
-Please consult with Selfkey Client Lib for specifics.
-
-**ui**
-
-This option is used to define how Selfkey Client Lib interacts with your website. Currently only one option is available inside it: **el**. We hope to extend our library and provide more UI customization options like theme and CSS overrides in the future..
-
-**el**
-
-* Can be one of the following: DOM element, css query selector, or an array containing a mixture of the previous two.
-* The current behavior of the [Selfkey-Client-Lib](#e-selfkey-client-lib) is to use them as containers for the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) login button
-* Example: `{ui: {el: '.lwsClient'}}`
-
-
-
-####
-
-```shell
-{
-   website: {
-       name: 'LWS Example Site',
-       url: 'https://yoursite.com/',
-       termsUrl: 'https://yoursite/terms.html',
-       policyUrl: 'https://yoursite.com/policy.html',
-   },
-}
-```
-```javascript
-
-{
-   website: {
-       name: 'LWS Example Site',
-       url: 'https://yoursite.com/',
-       termsUrl: 'https://yoursite/terms.html',
-       policyUrl: 'https://yoursite.com/policy.html',
-   },
-}
-```
-**website**
-
-* Information about the website integrating LWS.
-* This information is displayed for the user on the extension popup.
-* **name**: Name of the website
-* **url**: Canonical url for the website
-* **termsUrl**: a link to service terms of service
-* **policyUrl**: a link to service privacy policy
-
-
-
-### attributes
-
-```Shell
-attributes: [
-           {
-               id: "first_name",
-               label: "First Name",
-               schemaId: "http://platform.selfkey.org/schema/attribute/first-name.json"
-           },
-           {
-               label: "Last Name",
-               attribute: "http://platform.selfkey.org/schema/attribute/last-name.json"
-           },
-           {
-               id: "email",
-               schemaId: "http://platform.selfkey.org/schema/attribute/email.json"
-           },
-           "http://platform.selfkey.org/schema/attribute/email.json"
-],
-```
-
-
-
-
-* A list of attributes that are required for signup with the service.
-* Each attribute can contains the following information:
-
-* **schemaId**: A url to id attribute in https://platform.selfkey.org/repository.json and possibly other repositories in future. (required)
-* **id**: an unique identifier for a field on relying party server (optional)
-* **label**: a label for this attribute to be displayed for the user (optional, if not provided, we will use the title attribute of schema)
-* Alternatively an attribute can be a simple string which representing schemaId
-* NOTE: Current implementation is not updated with this config options, tracked in issue https://github.com/SelfKeyFoundation/Identity-Wallet/issues/1001
-
-
-####
-
-```javascript
-onAuthResponse: function(err, res, ui) {
-                console.log('OnAuthResponse', err, res, ui);
-                if (err) {
-                    document.getElementById(
-                        'user-token'
-                    ).innerHTML = `UserPayload Error: ${JSON.stringify(err)}`;
-                } else {
-                    document.getElementById(
-                        'user-token'
-                    ).innerHTML = `UserPayload: ${JSON.stringify(res)}`;
-                }
-
-
-                if (!ui) return;
-                setTimeout(() => {
-                    ui.popup.content.innerHTML = '<b>Closing popup</b>';
-                }, 1000);
-                setTimeout(() => {
-                    ui.popup.hide();
-                }, 3000);
-            }
-```
-
-### onAuthCallback
-
-
-
-* An optional callback that can be passed to configuration object.
-* If it is passed, client-lib will call it instead of performing the default login behavior (calling login endpoint and redirecting to provided URL).
-* It will be called on each login/signup attempt.
-
-**Arguments**:
-
-* error: Will contain error object if auth/signup failed. Will be null on successful authentication.
-* response: Will contain response object. Not modified, as returned from /auth/token endpoint.
-* ui: Will contain a reference to selfkey ui elements. Will allow to insert custom html and hide popup if necessary.
-* NOTE: needs to be examined from security perspective, but probably safe to use.
-
-
-
-### extensionId
-
-* It is an internal parameter, should not be documented for the public.
-* It is used to specify [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) id that is loaded in the browser and is used by Selfkey-lib to communicate with the extension, used for development purposes.
-
-
-
-
-
-### Complete SelfKey Extension Configuration Example
-> Complete SelfKey Extension Configuration Example
-
-```javascript
-{
-            ui: {
-                el: '.lwsClient'
-            },
-            website: {
-                name: 'LWS Example',
-                url: 'http://localhost:3030/',
-                termsUrl: 'http://localhost:3030/terms.html',
-                policyUrl: 'http://localhost:3030/policy.html'
-            },
-            rootEndpoint: '/api/v1/selfkey',
-            attributes: [
-                {
-                    id: 'first_name',
-                    label: 'First Name',
-                    schemaId: 'http://platform.selfkey.org/schema/attribute/first-name.json'
-                },
-                {
-                    id: 'last_name',
-                    label: 'Last Name',
-                    schemaId: 'http://platform.selfkey.org/schema/attribute/last-name.json'
-                },
-                {
-                    id: 'email',
-                    label: 'Email',
-                    schemaId: 'http://platform.selfkey.org/schema/attribute/email.json'
-                }
-            ],
-            onAuthResponse: function(err, res, ui) {
-                console.log('OnAuthResponse', err, res, ui);
-                if (err) {
-                    document.getElementById(
-                        'user-token'
-                    ).innerHTML = `UserPayload Error: ${JSON.stringify(err)}`;
-                } else {
-                    document.getElementById(
-                        'user-token'
-                    ).innerHTML = `UserPayload: ${JSON.stringify(res)}`;
-                }
-
-
-                if (!ui) return;
-                setTimeout(() => {
-                    ui.popup.content.innerHTML = '<b>Closing popup</b>';
-                }, 1000);
-                setTimeout(() => {
-                    ui.popup.hide();
-                }, 3000);
-            }
- }
-```
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-<center>*This area intentionally left blank (see right).*</center>
-
-## 3: SelfKey Marketplace Configuration
-
-There are no special configuration options are available for the SelfKey Marketplace at this point.
-
-
-### Complete SelfKey Marketplace Configuration Example:
-
-```javascript
-{
-        rootEndpoint: "https://kyc-instance-url.com/api/v1/",
-        endpoints: {
-            '/templates/:id': `https://kyc-instance-url.com/api/v1/templates/:id?format=minimum`
-        }
-}
-```
-
-
-* This is a simple integration that will only contain the root endpoint.
-* If you are using our compliance solution KYC-Chain, integrations will also contain an override for the template endpoints.
-
-
-
-# E. SelfKey Client Lib
-
-* SelfKey Client Lib is a client library used to integrate our Chrome browser plugin [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) to your website.
+* SelfKey Client Lib is a client library used to integrate your website to our Chrome browser plugin [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd).
 * We have four sample client integrations with Javascript, Angular 1, React, and Vue.
 * Repository: https://github.com/SelfKeyFoundation/selfkey-js-client
 * NOTE: All npm repos should be grouped under `@seflkey` organization prefix
@@ -483,8 +258,9 @@ There are no special configuration options are available for the SelfKey Marketp
 
 **Usage in Code**
 
-`import lws from 'lws-js-client'
-lws.init(config);`
+`import lws from 'lws-js-client'`
+
+`lws.init(config);`
 
 
 **CDN**
@@ -495,7 +271,6 @@ lws.init(config);`
 **Include Tag In Page**
 
 `<script src="https://unpkg.com/lws-js-client@1.0.0-beta.26/dist/lws.min.js"></script>`
-
 
 Unpkg works directly with npm, and you can include any file in the repository, the structure of the link is:
 
@@ -518,7 +293,7 @@ Init
 
 Arguments:
 
-* config – LWS process configuration as explained in Relying Party Configuration.
+* config – LWS process configuration as explained in [Configuring Your Website](#configuring-your-website).
 
 Prerequisites:
 
@@ -528,9 +303,7 @@ Prerequisites:
 
 Init Example:
 
-####
-
-```shell
+```javascript
 
 lws.init({
             ui: {
@@ -596,7 +369,7 @@ NPM with webpack or similar tools
 
 ####
 
-```Shell
+```javascript
 require('lws-angularjs-client');
 
 angular.module('lwsExample', ['lwsSdk'])
@@ -646,7 +419,7 @@ Include the following script on your webpage:
 
 **Usage In Code**:
 
-```Shell
+```javascript
 
 <div ng-controller="login">
         <lws-button website="website" attributes="attributes" root-endpoint="rootEndpoint" on-auth-response="onAuthResponse(err,res,ui)"></lws-button>
@@ -717,8 +490,8 @@ NPM with webpack or similar tools
 
 **Usage in Code**
 
-`import { LWSButton } from 'lws-react-client';
-
+```javascript
+import { LWSButton } from 'lws-react-client';
 
 const config = {
     website: {
@@ -746,7 +519,8 @@ const config = {
         }
     ]
 };
-ReactDOM.render((<LWSButton />), document.getElementById('root'))`
+ReactDOM.render((<LWSButton />), document.getElementById('root'))
+```
 
 
 **CDN**
@@ -760,9 +534,7 @@ Include the following script in your webpage:
 
 **Usage in Code**
 
-####
-
-```shell
+```javascript
 
 <div ng-controller="login">
         <lws-button website="website" attributes="attributes" root-endpoint="rootEndpoint" on-auth-response="onAuthResponse(err,res,ui)"></lws-button>
@@ -801,7 +573,6 @@ Include the following script in your webpage:
                 document.getElementById('root')
             );
  </script>
-
 ```
 
 
@@ -826,7 +597,7 @@ NPM with webpack or similar tools
 
 **Usage in Code**
 
-```vue
+```javascript
 
 require('lws-veu-client');
 
@@ -875,7 +646,7 @@ Include the following script in your webpage:
 
 ####
 
-```vue
+```javascript
 
 <div id="root">
    <lws-button v-bind:website="website" v-bind:attributes="attributes" v-bind:root-endpoint="rootEndpoint"></lws-button>
@@ -926,80 +697,8 @@ TBD by SelfKey Team
 TBD by SelfKey Team  
 
 
-# E. Authentication
 
-## Overview
-
-The purpose of this function is to prove the user has ownership over a Decentralized Identifier (DID) presented for authentication. To do this, we issue a **"Challenge-Response"** protocol to cryptographically prove ownership via private key. For Details about API endpoints, please consult: [REST API Spec](#f-rest-api-spec).
-
-<aside class="notice">Note: All communications MUST be done via secure SSL connection.</aside>
-
-## Part 1: Challenge-Response Protocol
-
-1. The SelfKey Identity Wallet requests a unique nonce from the your website and sends the Ethereum public key.
-2. Your website responds with a Challenge JWT Token containing the public key in subject and nonce claim.
-3. The wallet receives the Challenge Token, decodes it and extracts the nonce.
-4. The wallet creates a signature of the nonce signed with it's private key.
-5. The wallet replies to your website with the challenge JWT token and signature.
-6. Your website verifies that signature corresponds to the public key and nonce inside the JWT challenge token.
-7. Your website replies to the wallet by issuing a Wallet JWT token.
-8. The SelfKey Identity Wallet uses the "Wallet JWT Token" to perform other requests to your website.
-
-
-## Part 2: JWT-JSON Web token
-
-How To Implement JWT Tokens:
-
-* [JSON Web Token: Wikipedia] (https://en.wikipedia.org/wiki/JSON_Web_Token)
-* [JWT.io] (https://jwt.io/)
-* [JWT Handbook] (https://auth0.com/resources/ebooks/jwt-handbook)
-* [Auth0 JWT Docs] (https://auth0.com/docs/jwt)
-
-### Allowed Algorithms
-* **HMAC** - Default
-* **RSA** - Suitable for multi server authentication (STILL IN DEVELOPMENT)
-
-
-
-## Part 3: Challenge Token
-
-Besides several requirements below, you are free to include any data in your token for verification.
-
-Required Claims:
-
-* **sub**: (Subject) The wallet's public key
-* **iat**: (Issued At) the epoch timestamp that the JWT was issued at
-* **exp**: (Expiration)the epoch timestamp at which the JWT expires
-* **nonce**: (Number used Once) a random string of bytes (base64-encoded) which must be signed in order to authenticate
-* **typ**: "IDW_CHALLANGE"
-* Recommended token expiration time: 30 min
-
-## Part 4: Wallet Token
-
-Besides several requirements below, you are free to include any data in your token for verification.
-
-Required Claims:
-
-* **sub**: (Subject) The wallet's public key
-* **iat**: (Issued At) the epoch timestamp that the JWT was issued at
-* **exp**: (Expiration)the epoch timestamp at which the JWT expires
-* **typ**: "IDW_ACCESS"
-* Recommended token expiration time: 60 min
-
-## Part 5: How To Verify Wallet Token On Other Servers
-
-* JWT token can be verified on other servers, not just one.
-* This allows our API to reside in several different services, not necessary all endpoints in one.
-* For this to work, you must initialize your JWT verification logic with a shared secret key between the servers.
-* A better approach would be to use RS256 algorithm, and have your private key be accessible only to the server that hosts the challenge/response endpoint.
-* Afterwards, any other server that needs to verify it can use the public key.
-
-
-
-
-
-
-# F. REST API Spec
+# REST API Spec
 
 ## Overview
 
@@ -1030,7 +729,7 @@ NOTE: All communications must be done via a secure SSL connection.
 
 
 ## 1: Authentication
-* The goal of this function is to prove that the user has ownership over the presented Decentralized Identifier (DID).
+* The goal is to prove that the user has ownership over the presented Decentralized Identifier (DID).
 * This is done through a cryptographic challenge-response protocol as detailed below.
 
 
@@ -1041,16 +740,16 @@ Overview: This request is dispatched by the SelfKey Identity Wallet to start est
 ### Request
 
 
-`GET /auth/challenge/${publicKey}`
+`GET /auth/challenge/{did}`
 
 
 URL Params:
 
-* publicKey - standard Ethereum public key with (Note 0x prefix is required)
+* did - the user did
 
 Example:
 
-`GET /auth/challenge/0x3a1076bf45ab87712ad64ccb3b10217737f7faacbf2872e88fdd9a537d8fe266`
+`GET /auth/challenge/did:selfkey:0x11c47898a9d3498986129cdb0b8ac3ed468f5e400cb0076d40f355ad1ad2a120`
 
 Headers:
 
@@ -1072,7 +771,7 @@ JSON payload containing one key 'jwt'. It will contain the challenge token.
 
 
 
-Error: Invalid Public Key (Status Code: 422)
+Error: DID method is not supported (Status Code: 422)
 
 Body:
 
@@ -1080,8 +779,8 @@ Body:
 
 ### Challenge Reply
 
-* Request is dispatched by the SelfKey Identity Wallet to verify ownership of an Ethereum private key.
-* Payload is ECDA signature for the provided nonce. There are five types of responses:
+* Request is dispatched by the SelfKey Identity Wallet to verify ownership of the did authentication private key.
+* Payload is ECDA signature value for the provided nonce and key identifier. There are five types of responses:
 * 1) Success, 2) Error - Bad Request, 3) Error - Not Authorized, 4) Error - Forbidden, and 5) Error - Bad Payload.
 * Hardware Wallets: For users with Trezor or Ledger, they will have to manually confirm on devices for ECDA signatures.
 
@@ -1099,11 +798,18 @@ Headers:
 
 Body:
 
-* JSON payload containing one key 'signature'.
-* It will contain an ECDA signature generated by signing the nonce with Ethereum private key.
+* JSON payload containing one 'signature' object with value and keyId properties.
+* It will contain an ECDA signature value generated by signing the nonce with the did authentication private key.
 * Represented as hex (rpc sig).
 
-`{"signature": "0xf62e386b48761c61d5e0a54d90ba6bea1ee9648d9e26f1301e9be2306843190357c1d1c915244aa171bc34b0c2c6b66ad546ef651eeaa7add8335675e3e5454601"}`
+```javascript
+{
+  "signature": { 
+    "value":"0xf62e386b48761c61d5e0a54d90ba6bea1ee9648d9e26f1301e9be2306843190357c1d1c915244aa171bc34b0c2c6b66ad546ef651eeaa7add8335675e3e5454601",
+    "keyId": "did:selfkey:0x11c47898a9d3498986129cdb0b8ac3ed468f5e400cb0076d40f355ad1ad2a120#keys-1"
+  }
+}
+```
 
 ### Responses
 
@@ -1375,7 +1081,7 @@ Example:
 
 ### List Templates  
 
-```JavaScript
+```javascript
 [
     {
         "name": "Token Sale Signup for Individuals",
@@ -1416,7 +1122,6 @@ Success (Status Code: 200)
 ### Get Template Details
 
 ```javascript
-`
 {
   "id": "5c6619ae1ea6440111989852",
   "description": "Standard Attributes and Documents",
@@ -1453,7 +1158,6 @@ Success (Status Code: 200)
     }
   ],
   "name": "Standard Attributes"
-`
 ```
 
 
@@ -1463,7 +1167,7 @@ Returns a specific template details.
 
 **Request**:
 
-`GET /templates/${templateId}`
+`GET /templates/{templateId}`
 
 URL params:
 
@@ -1614,7 +1318,7 @@ Body:
 
 ### Create KYC Application
 
-```JavaScript
+```javascript
 
 {
   "templateId": "5c6533c440e7080070dda1f4",
@@ -1947,7 +1651,7 @@ Error - Bad Payload (Status Code: 422, Several Errors Possible)
 }`
 ```
 
-`GET /applications/${applicationId}`
+`GET /applications/{applicationId}`
 
 Returns all available details about a specific application
 
@@ -2008,86 +1712,288 @@ Body:
 
 
 
-### Create KYC Application Payment
+# Configuring Your Website
 
-`POST /applications/${applicationId}/payments`
+## Overview
+
+Using the [SelfKey Identity Wallet](https://www.selfkey.org/download) (desktop application) and [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) (browser plugin), we can utilize a user's Decentralized Identifier (DID) for authentication to your website. The configuration object has similar structure for both SelfKey Extension and SelfKey Marketplace integrations, but has several distinctions for each and is usually placed in different places.
+
+The SelfKey Extension configuration object would be usually passed directly when initialized inside [Selfkey-Client-Lib](#e-selfkey-client-lib). The SelfKey Marketplace integration object will usually be stored in the Selfkey API (Airtable inside *relying_party_config field*), you will need to submit the configuration (or all relevant details) to us.
+
+## 1: Common Configuration Properties
+
+There are two main properties that exist between both objects regarding integration endpoints.
+
+### rootEndpoint
+
+* This is the default integration endpoint.
+* If no overrides, by default the [SelfKey Identity Wallet](https://www.selfkey.org/download) will try to guess all endpoints by appending their name to it.  
+* If the *rootEndpoint* provided is not an absolute URL, it will be prepended with website URL (see website config option).
+
+*Example:*
+
+* **rootEndpoint**: "https://yoursite.com/api/v1/selfkey/"
+* The [SelfKey Identity Wallet](https://www.selfkey.org/download) will derive auth/challenge endpoint and templates endpoint by simply appending their name to root endpoint:
+* **Challenge**: https://yoursite.com/api/v1/selfkey/auth/challange
+* **Templates**: https://yoursite.com/api/v1/selfkey/template
+
+### endpoints
 
 
-**Request**
+* The endpoints option contain overrides to the default API endpoint mechanisms.
+* Override config supports both absolute URLs and relative URLs.
+* Our API is configurable in terms of URLs to the point that different endpoints can run on different services as long as they can use a common [Authentication](#authentication) scheme.
 
-Headers:
+*Example:*
 
-* User-Agent
-* Origin
-* Accept: application/json
-* Authorization: wallet token
+**rootEndpoint of "https://yoursite.com/api/v1/selfkey/"**
 
-Body: JSON object containing application payment
+* Default behavior for the template endpoint is to use: https://yoursite.com/api/v1/selfkey/templates endpoint, but there are two options for relative override and absolute override:
 
-Application payment object will contain:
+* **Relative override**: Instead of default, it will use -> *https://yoursite.com/api/v1/selfkey/repository/templates*
 
-* transactionHash – the hash of an ethereum transaction
+`{ "endpoints" : "/templates": "/repository/templates" }`
 
-`{
-  "transactionHash": "0x8b69a0ca303305a92d8d028704d65e4942b7ccc9a99917c8c9e940c9d57a9662"
-}`
+* **Absolute override**: Instead of default, it will use -> *https://api.yoursite.com/repository/templates*
+
+`{ "endpoints" : "/templates": "https://api.yoursite.com/repository/templates" }`
 
 
-**Response**
+### Complete List Of Possible endpoints
 
-Success (Status Code: 200)
+* '/auth/challenge' (COMMON)
+* '/users/token' (COMMON)
+* '/users/files' (LWS)
+* '/users' (LWS)
+* '/login' (LWS)
+* '/templates' (Marketplace)
+* '/templates/:id' (Marketplace)
+* '/applications' (Marketplace)
+* '/applications/:id' (Marketplace)
+* '/applications' (Marketplace)
+* '/applications/:id' (Marketplace)
+* '/files' (Marketplace)
+
+### Parameterized Endpoints:
+* Some endpoints like *'/templates/:id'* will contain resource ID as part of the URL
+* The SelfKey Identity Wallet will replace *":id "* for actual resource ID on communication.
+
+
+### Meta
+* This config option is not used by the SelfKey Identity Wallet.
+* It is an object that will be passed to relying party on certain endpoint requests as is.
+* Currently it is used by the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) for a user creation endpoint.
+
+* Example: `{meta: { templateId: '333444' }}`
+
+
+## 2: SelfKey Extension Configuration
+
+
+
+The configuration object is passed differently between different client lib implementations (for different frameworks).
+Please consult with Selfkey Client Lib for specifics.
+
+**ui**
+
+This option is used to define how Selfkey Client Lib interacts with your website. Currently only one option is available inside it: **el**. We hope to extend our library and provide more UI customization options like theme and CSS overrides in the future..
+
+**el**
+
+* Can be one of the following: DOM element, css query selector, or an array containing a mixture of the previous two.
+* The current behavior of the [Selfkey-Client-Lib](#e-selfkey-client-lib) is to use them as containers for the [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd) login button
+* Example: `{ui: {el: '.lwsClient'}}`
+
+
+
+####
+
+```shell
+{
+   website: {
+       name: 'LWS Example Site',
+       url: 'https://yoursite.com/',
+       termsUrl: 'https://yoursite/terms.html',
+       policyUrl: 'https://yoursite.com/policy.html',
+   },
+}
+```
+```javascript
+
+{
+   website: {
+       name: 'LWS Example Site',
+       url: 'https://yoursite.com/',
+       termsUrl: 'https://yoursite/terms.html',
+       policyUrl: 'https://yoursite.com/policy.html',
+   },
+}
+```
+**website**
+
+* Information about the website integrating LWS.
+* This information is displayed for the user on the extension popup.
+* **name**: Name of the website
+* **url**: Canonical url for the website
+* **termsUrl**: a link to service terms of service
+* **policyUrl**: a link to service privacy policy
+
+
+
+### attributes
+
+```Shell
+attributes: [
+           {
+               id: "first_name",
+               label: "First Name",
+               schemaId: "http://platform.selfkey.org/schema/attribute/first-name.json"
+           },
+           {
+               label: "Last Name",
+               attribute: "http://platform.selfkey.org/schema/attribute/last-name.json"
+           },
+           {
+               id: "email",
+               schemaId: "http://platform.selfkey.org/schema/attribute/email.json"
+           },
+           "http://platform.selfkey.org/schema/attribute/email.json"
+],
+```
+
+
+
+
+* A list of attributes that are required for signup with the service.
+* Each attribute can contains the following information:
+
+* **schemaId**: A url to id attribute in https://platform.selfkey.org/repository.json and possibly other repositories in future. (required)
+* **id**: an unique identifier for a field on relying party server (optional)
+* **label**: a label for this attribute to be displayed for the user (optional, if not provided, we will use the title attribute of schema)
+* Alternatively an attribute can be a simple string which representing schemaId
+
 
 ####
 
 ```javascript
-`{
-  "createdAt": "2019-02-21T03:44:47.555Z",
-  "id": "5c6e1eaf049ff100646cedd8",
-  "transactionHash": "0x8b69a0ca303305a92d8d028704d65e4942b7ccc9a99917c8c9e940c9d57a9662"
-}`
+onAuthResponse: function(err, res, ui) {
+                console.log('OnAuthResponse', err, res, ui);
+                if (err) {
+                    document.getElementById(
+                        'user-token'
+                    ).innerHTML = `UserPayload Error: ${JSON.stringify(err)}`;
+                } else {
+                    document.getElementById(
+                        'user-token'
+                    ).innerHTML = `UserPayload: ${JSON.stringify(res)}`;
+                }
+
+
+                if (!ui) return;
+                setTimeout(() => {
+                    ui.popup.content.innerHTML = '<b>Closing popup</b>';
+                }, 1000);
+                setTimeout(() => {
+                    ui.popup.hide();
+                }, 3000);
+            }
+```
+
+### onAuthCallback
+
+
+
+* An optional callback that can be passed to configuration object.
+* If it is passed, client-lib will call it instead of performing the default login behavior (calling login endpoint and redirecting to provided URL).
+* It will be called on each login/signup attempt.
+
+**Arguments**:
+
+* error: Will contain error object if auth/signup failed. Will be null on successful authentication.
+* response: Will contain response object. Not modified, as returned from /auth/token endpoint.
+* ui: Will contain a reference to selfkey ui elements. Will allow to insert custom html and hide popup if necessary.
+
+
+
+
+### Complete SelfKey Extension Configuration Example
+> Complete SelfKey Extension Configuration Example
+
+```javascript
+{
+            ui: {
+                el: '.lwsClient'
+            },
+            website: {
+                name: 'LWS Example',
+                url: 'http://localhost:3030/',
+                termsUrl: 'http://localhost:3030/terms.html',
+                policyUrl: 'http://localhost:3030/policy.html'
+            },
+            rootEndpoint: '/api/v1/selfkey',
+            attributes: [
+                {
+                    id: 'first_name',
+                    label: 'First Name',
+                    schemaId: 'http://platform.selfkey.org/schema/attribute/first-name.json'
+                },
+                {
+                    id: 'last_name',
+                    label: 'Last Name',
+                    schemaId: 'http://platform.selfkey.org/schema/attribute/last-name.json'
+                },
+                {
+                    id: 'email',
+                    label: 'Email',
+                    schemaId: 'http://platform.selfkey.org/schema/attribute/email.json'
+                }
+            ],
+            onAuthResponse: function(err, res, ui) {
+                console.log('OnAuthResponse', err, res, ui);
+                if (err) {
+                    document.getElementById(
+                        'user-token'
+                    ).innerHTML = `UserPayload Error: ${JSON.stringify(err)}`;
+                } else {
+                    document.getElementById(
+                        'user-token'
+                    ).innerHTML = `UserPayload: ${JSON.stringify(res)}`;
+                }
+
+
+                if (!ui) return;
+                setTimeout(() => {
+                    ui.popup.content.innerHTML = '<b>Closing popup</b>';
+                }, 1000);
+                setTimeout(() => {
+                    ui.popup.hide();
+                }, 3000);
+            }
+ }
+```
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<center>*This area intentionally left blank (see right).*</center>
+
+## 3: SelfKey Marketplace Configuration
+
+There are no special configuration options available for the SelfKey Marketplace at this point.
+
+
+### Complete SelfKey Marketplace Configuration Example:
+
+```javascript
+{
+        rootEndpoint: "https://kyc-instance-url.com/api/v1/",
+        endpoints: {
+            '/templates/:id': `https://kyc-instance-url.com/api/v1/templates/:id?format=minimum`
+        }
+}
 ```
 
 
-Body: JSON object with created payment details
+* This is a simple integration that will only contain the root endpoint.
+* If you are using our compliance solution KYC-Chain, integrations will also contain an override for the template endpoints.
 
 
-
-Error - Bad Request (Status Code: 400)
-
-`{
-  "code": "token_missing",
-  "message": "Missing authorization header"
-}`
-
-
-Error - Not Authorized (Status Code: 401)
-
-Body
-
-`{
-  "code": "token_invalid",
-  "message": "Invalid token: Missing nonce claim"
-}`
-
-`{
-  "code": "token_invalid",
-  "message": "Malformed authorization header"
-}`
-
-
-Error - Forbidden (Status Code: 403)
-
-Body:
-
-`{
-  "code": "forbidden",
-  "message": "Insufficient permissions"
-}`
-
-Error - Bad Payload (Status Code: 422, Several Errors Possible)
-
-Example:
-
-`{
-  "message": "Transaction hash is missing"
-}`
