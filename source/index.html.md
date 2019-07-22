@@ -207,7 +207,7 @@ Required Claims:
 * **iat**: (Issued At) the epoch timestamp that the JWT was issued at
 * **exp**: (Expiration)the epoch timestamp at which the JWT expires
 * **nonce**: (Number used Once) a random string of bytes (base64-encoded) which must be signed in order to authenticate
-* **typ**: "IDW_CHALLANGE"
+* **tokenType**: "IDW_CHALLANGE"
 * Recommended token expiration time: 30 min
 
 ## Part 4: Wallet Token
@@ -219,7 +219,7 @@ Required Claims:
 * **sub**: (Subject) The user's DID
 * **iat**: (Issued At) the epoch timestamp that the JWT was issued at
 * **exp**: (Expiration)the epoch timestamp at which the JWT expires
-* **typ**: "IDW_ACCESS"
+* **tokenType**: "IDW_ACCESS"
 * Recommended token expiration time: 60 min
 
 ## Part 5: How To Verify Wallet Token On Other Servers
@@ -236,12 +236,10 @@ Required Claims:
 * SelfKey Client Lib is a client library used to integrate your website to our Chrome browser plugin [SelfKey Extension](https://chrome.google.com/webstore/detail/selfkey-extension/fmmadhehohahcpnjjkbdajimilceilcd).
 * We have four sample client integrations with Javascript, Angular 1, React, and Vue.
 * Repository: https://github.com/SelfKeyFoundation/selfkey-js-client
-* NOTE: All npm repos should be grouped under `@seflkey` organization prefix
 
 ## 1. Javacript Client
 
-* URL: https://www.npmjs.com/package/lws-js-client
-
+* URL: https://www.npmjs.com/package/@selfkey/lws-js-client
 
 **Sample Integration**:
 
@@ -254,11 +252,11 @@ Required Claims:
 
 **Install With NPM**
 
-`npm install lws-js-client --save`
+`npm install @selfkey/lws-js-client --save`
 
 **Usage in Code**
 
-`import lws from 'lws-js-client'`
+`import lws from '@selfkey/lws-js-client'`
 
 `lws.init(config);`
 
@@ -270,7 +268,7 @@ Required Claims:
 
 **Include Tag In Page**
 
-`<script src="https://unpkg.com/lws-js-client@1.0.0-beta.26/dist/lws.min.js"></script>`
+`<script src="https://unpkg.com/@selfkey/lws-js-client@1.0.0-beta.33/dist/lws.min.js"></script>`
 
 Unpkg works directly with npm, and you can include any file in the repository, the structure of the link is:
 
@@ -350,7 +348,7 @@ An opposite method to *init*, will destroy all that *init* have setup.
 
 ## 2. Angular 1 Client
 
-* URL: https://www.npmjs.com/package/lws-angularjs-client
+* URL: https://www.npmjs.com/package/@selfkey/lws-angularjs-client
 
 Sample Integration:
 
@@ -363,14 +361,14 @@ NPM with webpack or similar tools
 
 **Install With NPM**
 
-`npm install lws-angularjs-client --save`
+`npm install @selfkey/lws-angularjs-client --save`
 
 **Usage in Code**
 
 ####
 
 ```javascript
-require('lws-angularjs-client');
+require('@selfkey/lws-angularjs-client');
 
 angular.module('lwsExample', ['lwsSdk'])
             .controller('login', ['$scope', ($scope) => {
@@ -414,7 +412,7 @@ angular.module('lwsExample', ['lwsSdk'])
 Include the following script on your webpage:
 
 `<script src="http://unpkg.com/angular@1.6.10/angular.min.js"></script>
-<script src="https://unpkg.com/lws-angularjs-client@1.0.0-beta.26/dist/lws-angularjs-client.min.js"></script>`
+<script src="https://unpkg.com/@selfkey/lws-angularjs-client@1.0.0-beta.26/dist/lws-angularjs-client.min.js"></script>`
 
 
 **Usage In Code**:
@@ -473,7 +471,7 @@ angular.module('lwsExample', ['lwsSdk'])
 
 ## 3. React Client
 
-URL: https://www.npmjs.com/package/lws-react-client
+URL: https://www.npmjs.com/package/@selfkey/lws-react-client
 
 ### Sample Integration
 
@@ -486,12 +484,12 @@ NPM with webpack or similar tools
 
 **Install With NPM**
 
-`npm install lws-react-client --save`
+`npm install @selfkey/lws-react-client --save`
 
 **Usage in Code**
 
 ```javascript
-import { LWSButton } from 'lws-react-client';
+import { LWSButton } from '@selfkey/lws-react-client';
 
 const config = {
     website: {
@@ -529,7 +527,7 @@ Include the following script in your webpage:
 
 `<script src="http://unpkg.com/react@16.5.0/umd/react.production.min.js"></script>
 <script src="http://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/lws-react-client@1.0.0-beta.26/dist/lws-react-client.min.js"></script>`
+<script src="https://unpkg.com/@selfkey/lws-react-client@1.0.0-beta.26/dist/lws-react-client.min.js"></script>`
 
 
 **Usage in Code**
@@ -593,13 +591,13 @@ NPM with webpack or similar tools
 
 **Install With NPM**
 
-`npm install lws-vue-client --save`
+`npm install @selfkey/lws-vue-client --save`
 
 **Usage in Code**
 
 ```javascript
 
-require('lws-veu-client');
+require('@selfkey/lws-veu-client');
 
 new Vue({
             el: '#root',
@@ -640,7 +638,7 @@ Include the following script in your webpage:
 **Include Tag in Page**
 
 `<script src="http://unpkg.com/vue@2.5.17/dist/vue.js"></script>
-<script src="https://unpkg.com/lws-vue-client@1.0.0-beta.26/dist/lws-vue-client.min.js"></script>`
+<script src="https://unpkg.com/@selfkey/lws-vue-client@1.0.0-beta.26/dist/lws-vue-client.min.js"></script>`
 
 **Usage in Code**
 
